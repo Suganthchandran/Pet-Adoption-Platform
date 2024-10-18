@@ -1,0 +1,27 @@
+.feature-card {
+    border: 1px solid black;
+    display: flex;
+    padding: 20px 50px;
+    padding-bottom: 10px !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+    background-color: white;
+    max-width: 450px;
+}
+
+.feature-card-image {
+    width: 100px;
+    height: 100px;
+}
+
+.feature-card-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.35rem;
+}
+
+.feature-card-desc {
+    font-size: 1.2rem;
+    text-align: center;
+}

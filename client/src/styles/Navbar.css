@@ -1,0 +1,42 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: transparent;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.navbar-content ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-content ul li {
+    margin-right: 50px;
+}
+
+.navbar-content ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.navbar-contact-info a {
+    color: #fff;
+    text-decoration: none;
+}

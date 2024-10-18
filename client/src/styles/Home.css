@@ -1,0 +1,150 @@
+.home-image {
+    height: 105vh;
+    background-size: cover;
+    background-position: center top;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    margin-top: -80px;
+    position: relative;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+.home-title {
+    color: white;
+    z-index: 2;
+    font-size: 4rem;
+    margin-top: 1rem;
+    position: absolute;
+    top: 465px;
+}
+
+.home-types-container {
+    width: 80%;
+    max-width: 1350px;
+    padding: 3rem;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 50px;
+    box-shadow: 1px 1px 3px black;
+    z-index: 2;
+    margin: 0 auto;
+    position: absolute;
+    top: 880px;
+    left: 265px;
+}
+
+.home-type {
+    border: 1px solid grey;
+    padding: 3rem 5rem;
+    background-color: rgb(236, 236, 236,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.home-type3 {
+    padding: 3rem 3.5rem !important;
+}
+
+.home-type h1 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.home-type img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.home-desc {
+    padding: 2rem 7%;
+    margin-top: 25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.home-desc-content{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    font-size: 1.2rem;
+}
+
+.home-desc-title {
+    font-size: 1.9rem;
+    font-weight: 700;
+    font-family: karla;
+}
+
+@media (max-width: 1024px) {
+    .home-title {
+        font-size: 3rem;
+    }
+
+    .home-types-container {
+        flex-direction: column;
+        width: 90%;
+        top: 70vh; 
+        left: 0px;
+    }
+
+    .home-type {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+    }
+
+    .home-type img {
+        width: 130px;
+        height: 130px;
+    }
+
+    .home-type h1 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-title {
+        font-size: 2.5rem;
+    }
+
+    .home-types-container {
+        padding: 1.5rem;
+    }
+
+    .home-type {
+        padding: 1rem;
+    }
+
+    .home-type img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .home-type h1 {
+        font-size: 1.2rem;
+    }
+}

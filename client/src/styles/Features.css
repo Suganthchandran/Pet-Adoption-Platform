@@ -1,0 +1,22 @@
+.feature {
+    margin-top: 2rem;
+    padding: 3rem 7%;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    margin-bottom: 6rem;
+    background-color: rgb(230, 230, 230,0.3);
+}
+
+.feature-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-family: Montserrat;
+    margin-bottom: 4rem;
+}
+
+.feature-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap:5rem;
+}
