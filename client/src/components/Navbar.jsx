@@ -27,7 +27,7 @@ const Navbar = () => {
       <div className="navbar-logo">Diago</div>
       <nav className="navbar-content">
         <ul>
-          <li><a href="#">HOME</a></li>
+          <li><a href="/">HOME</a></li>
           <li><a href="#">ANIMALS</a></li>
           <li><a href="#">SHOP</a></li>
           <li><a href="#">ABOUT US</a></li>

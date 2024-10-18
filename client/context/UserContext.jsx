@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { createContext, useState, useEffect } from 'react'
+import { animals } from '../src/assets/assets';
 
 export const UserContext = createContext({});
 
@@ -16,7 +17,7 @@ export function UserContextProvider({children}) {
     },[])
 
     return (
-        <UserContext.Provider value={{user, setUser}}>
+        <UserContext.Provider value={{user, setUser, animals}}>
             {children}
         </UserContext.Provider>
     )

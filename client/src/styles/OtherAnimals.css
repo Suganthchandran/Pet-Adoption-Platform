@@ -1,0 +1,218 @@
+.other_animals {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid black;
+    padding: 3rem 5%;
+    background-color: rgb(238, 238, 238,0.5);
+}
+
+.other_animals-banner-image {
+    height: 105vh;
+    background-size: cover;
+    background-position: center top;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    margin-top: -80px;
+    position: relative;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+.other_animals-banner-title {
+    color: white;
+    z-index: 2;
+    font-size: 4rem;
+    margin-top: 1rem;
+    position: absolute;
+    top: 445px;
+}
+
+.other_animals-banner-desc {
+    position: absolute;
+    top: 530px;
+    z-index: 2;
+    font-size: 1.5rem;
+    color: white;
+    padding: 20px 300px;
+}
+
+.other_animals-filter-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+
+.other_animals-filter-head {
+    margin-bottom: 2rem;
+    margin-top: 0.4rem;
+}
+
+.other_animals-filter-dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: -20px;
+}
+
+.other_animals-filter-dropdown label {
+    font-family: "Nexa Heavy", Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-family: Montserrat;
+}
+
+.other_animals-filter-dropdown select {
+    width: 250px;
+    height: 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: karla;
+    padding: 5px;
+}
+
+.other_animals-products {
+
+    flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+    .other_animals-filter-icon {
+        display: none;
+    }
+
+    .other_animalsegory-filter {
+        display: block !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .other_animals {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .other_animals-right-up{
+        flex-direction: column;
+        gap : 2rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .other_animals-filter-text {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+    }
+
+    .hidden {
+        display: none;
+    }
+}
+
+.other_animals-filter-options {
+    min-width: 15rem;
+}
+
+.other_animals-filter-text {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 0.5rem;
+}
+
+.other_animalsegory-filter {
+    border: 1px solid #d1d5db;
+    padding-left: 1.25rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    margin-top: 1.5rem;
+    width: 200px;
+}
+
+.hidden {
+    display: none;
+}
+
+.other_animalsegorise {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.other_animalsegorise-content {
+    display: flex;
+    gap: 0.65rem;
+    color: rgb(95, 95, 95);
+}
+
+.other_animalsegorise-content input {
+    width: 0.75rem;
+}
+
+.other_animals-filter-icon {
+    height: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+.rotate-90 {
+    transform: rotate(90deg);
+}
+
+.other_animalsegory-title {
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.other_animals-right{
+    flex: 1;
+    margin-top: 0.3rem;
+}
+
+.other_animals-right-up{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.other_animals-sort{
+    border: 2px solid rgb(175, 175, 175);
+    background-color: white;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-right: 35px;
+}
+
+.other_animals-products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    row-gap: 1.5rem;
+    margin-top: 4rem;
+    flex-wrap: wrap !important;
+}
+
+@media (min-width: 768px) {
+    .other_animals-products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

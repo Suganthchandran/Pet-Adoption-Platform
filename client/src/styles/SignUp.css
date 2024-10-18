@@ -1,0 +1,132 @@
+.signup-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem;
+    background-color: #fff; 
+    border: none;
+}
+
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    border: 1px solid grey;
+    width: 800px;
+    padding-left: 90px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.signup-image-container {
+    margin-left: -100px;
+}
+
+.signup-image {
+    width: 500px;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    width: 90%;
+    margin-top: -100px;
+}
+
+.signup-form-control {
+    position: relative;
+    margin: 10px 0 30px;
+    width: 190%;
+}
+
+.signup-form-control input {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px #000000 solid;
+    display: block;
+    width: 100%;
+    padding: 25px 0 10px;
+    font-size: 1.35rem;
+    color: #000000;
+}
+
+.signup-form-control input:focus,
+.signup-form-control input:valid {
+    outline: 0;
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+.signup-form-control label {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    pointer-events: none;
+}
+
+.signup-form-control label span {
+    display: inline-block;
+    font-size: 1.5rem;
+    min-width: 5px;
+    color: #000000;
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.signup-form-control input:focus + label span,
+.signup-form-control input:valid + label span {
+    color: rgb(0, 0, 0);
+    transform: translateY(-30px);
+}
+
+.signup-button {
+    font-family: inherit;
+    display: inline-block;
+    width: 6em;
+    position: absolute;
+    left: 11rem;
+    height: 2.6em;
+    line-height: 2.5em;
+    margin: 20px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border: 2px solid black;
+    background-color: transparent;
+    transition: color 0.5s;
+    z-index: 1;
+    font-size: 17px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: black;
+  }
+  
+  .signup-button::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: black;
+    height: 150px;
+    width: 200px;
+    border-radius: 50%;
+    top: 100%;
+    left: 100%;
+    transition: all 0.7s;
+  }
+  
+  .signup-button:hover {
+    color: #fff;
+  }
+  
+  .signup-button:hover::before {
+    top: -30px;
+    left: -30px;
+  }
+  
+  .signup-button:active::before {
+    background: #b6b5b5;
+    transition: background 0s;
+  }
+  

@@ -1,0 +1,61 @@
+.animal-item{
+    text-decoration: none;
+    color: black;
+    font-family: Montserrat;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    border: 1px solid rgb(140, 140, 140);
+    border-radius: 30px;
+}
+
+.animal-item-imagebox {
+    margin-bottom: 1rem;
+    width: 444px;
+    height: 200px;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.animal-item-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 30px !important;
+    left: 0;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    border: 1px solid rgb(140, 140, 140);
+    border-bottom: none;
+}
+
+.animal-item-image:hover {
+    transform: scale(1.05);
+    filter: brightness(0.8);
+    overflow: hidden; 
+}
+
+
+.animal-item-name{
+    margin-bottom: 0.5rem;
+    font-family: mooli;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.animal-item-year{
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+
+@media (max-width:450px) {
+    
+    .animal-item-name{
+        font-size: 0.9rem;
+    }
+}

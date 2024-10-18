@@ -8,6 +8,9 @@ import {Toaster} from 'react-hot-toast'
 import Home from './pages/Home'
 import { UserContextProvider } from '../context/UserContext'
 import Footer from './components/Footer'
+import Dogs from './pages/Dogs'
+import Cats from './pages/Cats'
+import OtherAnimals from './pages/OtherAnimals'
 
 axios.defaults.baseURL = 'http://localhost:8086'
 axios.defaults.withCredentials = true
@@ -23,8 +26,10 @@ function App() {
               <Route path='/' element={<Home/>} />
               <Route path='/login' element={<Login/>} />
               <Route path='/register' element={<SignUp/>} />
+              <Route path='/dogs' element={<Dogs/>} />
+              <Route path='/cats' element={<Cats/>} />
+              <Route path='/other-animals' element={<OtherAnimals/>} />
           </Routes>
-          <Footer/>
       </UserContextProvider>
       </BrowserRouter>
     </>

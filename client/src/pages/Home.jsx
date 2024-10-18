@@ -6,6 +6,8 @@ import '../styles/Home.css';
 import Navbar from '../components/Navbar';
 import { Tilt } from 'react-tilt';
 import Features from '../components/Features';
+import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -31,6 +33,12 @@ const hoverEffect = {
 const Home = () => {
     const { user } = useContext(UserContext);
 
+    const navigate = useNavigate();
+
+    const handleNavigation = (path, name) => {
+        navigate(path, { state: { name } });
+    };
+
     return (
         <div className='home'>
             <Navbar />
@@ -49,6 +57,7 @@ const Home = () => {
                     <Tilt>
                         <motion.div
                             className='home-type home-type1'
+                            onClick={()=>handleNavigation('/dogs','dog')}
                             variants={itemVariants}
                             whileHover={hoverEffect}
                         >
@@ -60,6 +69,7 @@ const Home = () => {
                     <Tilt>
                         <motion.div
                             className='home-type home-type2'
+                            onClick={()=>handleNavigation('/cats','cat')}
                             variants={itemVariants}
                             whileHover={hoverEffect}
                         >
@@ -71,6 +81,7 @@ const Home = () => {
                     <Tilt>
                         <motion.div
                             className='home-type home-type3'
+                            onClick={()=>handleNavigation('/other-animals','other_animals')}
                             variants={itemVariants}
                             whileHover={hoverEffect}
                         >
@@ -101,7 +112,9 @@ const Home = () => {
             <div>
                 <Features/>
             </div>
+            <Footer/>
         </div>
+
     );
 };
 
