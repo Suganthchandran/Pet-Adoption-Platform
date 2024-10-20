@@ -7,7 +7,7 @@ import Navbar from '../components/Navbar';
 import { assets } from '../assets/assets';
 import Footer from '../components/Footer';
 
-const OtherAnimals = () => { // Renamed the component to 'Cats'
+const OtherAnimals = () => {
     const location = useLocation();
     const { name } = location.state || { name: 'other_animals' };
     const { animals } = useContext(UserContext);
@@ -22,25 +22,22 @@ const OtherAnimals = () => { // Renamed the component to 'Cats'
 
     const [filteredAnimals, setFilteredAnimals] = useState([]);
 
-    // Extract unique filter values (only from cats)
-    const Other_animals = animals.filter(animal => animal.type === 'other_animals'); // Filter only Other_animals
-    const uniqueAnimals = [...new Set(Other_animals.map(animal => animal.subtype))];
+    const Other_animals = animals.filter(animal => animal.type !== 'dog' && animal.type !== 'cat'); // Filter only Other_animals
+    const uniqueAnimals = [...new Set(Other_animals.map(animal => animal.type))];
     const uniqueAges = [...new Set(Other_animals.map(animal => animal.age))];
     const uniqueGenders = [...new Set(Other_animals.map(animal => animal.gender))];
     const uniqueColors = [...new Set(Other_animals.map(animal => animal.color))];
     const uniqueYears = [...new Set(Other_animals.map(animal => animal.year))];
 
-    // Update filters based on dropdown selection
     const handleFilterChange = (e) => {
         const { name, value } = e.target;
         setFilters({ ...filters, [name]: value });
     };
 
-    // Filter the cats based on selected filters
     useEffect(() => {
         let filtered = Other_animals.filter(animal => {
             return (
-                (!filters.subtype || animal.subtype === filters.subtype) &&
+                (!filters.type || animal.type === filters.type) &&
                 (!filters.age || animal.age === filters.age) &&
                 (!filters.gender || animal.gender === filters.gender) &&
                 (!filters.color || animal.color === filters.color) &&
@@ -60,12 +57,11 @@ const OtherAnimals = () => { // Renamed the component to 'Cats'
             </section>
         <div className="other_animals">
 
-            {/* Filter Dropdowns */}
             <div className="other_animals-filter-options">
                 <h1 className='other_animals-filter-head'>FILTERS</h1>
                 <div className="other_animals-filter-dropdown">
                     <label>ANIMALS:</label>
-                    <select name="subtype" onChange={handleFilterChange}>
+                    <select name="type" onChange={handleFilterChange}>
                         <option value="">All</option>
                         {uniqueAnimals.map((subtype, index) => (
                             <option key={index} value={subtype}>{subtype}</option>
@@ -116,7 +112,7 @@ const OtherAnimals = () => { // Renamed the component to 'Cats'
 
             {/* Displaying the filtered other_animalss */}
             <div className="other_animals-right">
-                <h1>OTHER ANIMAlS : </h1>
+                <h1>OTHER ANIMALS : </h1>
                 <div className="other_animals-products">
                     {filteredAnimals.length > 0 ? (
                         filteredAnimals.map((animal, index) => (

@@ -4,6 +4,8 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
 import { assets } from '../assets/assets';
+import { MdEmail } from "react-icons/md";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -11,6 +13,11 @@ const Login = () => {
     email: '',
     password: '',
   });
+  const [showPassword,setShowPassword] = useState(false)
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(prevState => !prevState);
+  };
 
   const loginUser = async (e) => {
     e.preventDefault();
@@ -53,11 +60,12 @@ const Login = () => {
                 <span style={{ transitionDelay: '150ms' }}>i</span>
                 <span style={{ transitionDelay: '200ms' }}>l</span>
               </label>
+              <div className='login-email-icon'><MdEmail /></div>
             </div>
   
             <div className="login-form-control">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 required
                 value={data.password}
                 onChange={(e) => setData({ ...data, password: e.target.value })}
@@ -72,6 +80,9 @@ const Login = () => {
                 <span style={{ transitionDelay: '300ms' }}>r</span>
                 <span style={{ transitionDelay: '350ms' }}>d</span>
               </label>
+              <div className='login-password-icon' onClick={togglePasswordVisibility}>
+                {showPassword ? <FaEyeSlash/> : <FaEye />}
+                </div>
             </div>
   
             <button className='login-button' type="submit">Login</button>

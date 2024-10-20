@@ -22,7 +22,6 @@ const Cats = () => { // Renamed the component to 'Cats'
 
     const [filteredAnimals, setFilteredAnimals] = useState([]);
 
-    // Extract unique filter values (only from cats)
     const cats = animals.filter(animal => animal.type === 'cat'); // Filter only cats
     const uniqueBreeds = [...new Set(cats.map(animal => animal.breed))];
     const uniqueAges = [...new Set(cats.map(animal => animal.age))];
@@ -30,13 +29,11 @@ const Cats = () => { // Renamed the component to 'Cats'
     const uniqueColors = [...new Set(cats.map(animal => animal.color))];
     const uniqueYears = [...new Set(cats.map(animal => animal.year))];
 
-    // Update filters based on dropdown selection
     const handleFilterChange = (e) => {
         const { name, value } = e.target;
         setFilters({ ...filters, [name]: value });
     };
 
-    // Filter the cats based on selected filters
     useEffect(() => {
         let filtered = cats.filter(animal => {
             return (
@@ -60,7 +57,6 @@ const Cats = () => { // Renamed the component to 'Cats'
             </section>
         <div className="cat">
 
-            {/* Filter Dropdowns */}
             <div className="cat-filter-options">
                 <h1 className='cat-filter-head'>FILTERS</h1>
                 <div className="cat-filter-dropdown">

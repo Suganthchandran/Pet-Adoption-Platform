@@ -5,6 +5,9 @@ import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import '../styles/SignUp.css'
 import { assets } from '../assets/assets'
+import { MdEmail } from "react-icons/md";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaUserAlt } from "react-icons/fa";
 
 const SignUp = () => {
 
@@ -14,6 +17,11 @@ const SignUp = () => {
     email: '',
     password: '',
   })
+  const [showPassword,setShowPassword] = useState(false)
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(prevState => !prevState);
+  };
 
   const registerUser = async (e) => {
     e.preventDefault();
@@ -62,6 +70,7 @@ const SignUp = () => {
                 <span style={{ transitionDelay: '150ms' }}>m</span>
                 <span style={{ transitionDelay: '200ms' }}>e</span>
               </label>
+              <div className='signup-user-icon'><FaUserAlt /></div>
             </div>
             <div className="signup-form-control">
               <input
@@ -77,11 +86,12 @@ const SignUp = () => {
                 <span style={{ transitionDelay: '150ms' }}>i</span>
                 <span style={{ transitionDelay: '200ms' }}>l</span>
               </label>
+              <div className='signup-email-icon'><MdEmail /></div>
             </div>
 
             <div className="signup-form-control">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 required
                 value={data.password}
                 onChange={(e) => setData({ ...data, password: e.target.value })}
@@ -96,6 +106,9 @@ const SignUp = () => {
                 <span style={{ transitionDelay: '300ms' }}>r</span>
                 <span style={{ transitionDelay: '350ms' }}>d</span>
               </label>
+              <div className='signup-password-icon' onClick={togglePasswordVisibility}>
+                {showPassword ? <FaEyeSlash/> : <FaEye />}
+                </div>
             </div>
 
             <button className='signup-button' type="submit">Register</button>

@@ -8,6 +8,10 @@ import Dog_image from './Dog_Image.jpg'
 import Cat_image from './Cat_Image.jpg'
 import Animal_Banner_image from './Animals_Banner_Image.jpg'
 import Dog from './Dog2.jpg'
+import Cat from './Cat.webp'
+import Rabbit from './Rabbit.jpeg'
+import Hamster from './Hamster.jpg'
+import Horse from './Horse.jpeg'
 
 export const assets = {
     login_image,
@@ -20,6 +24,10 @@ export const assets = {
     Cat_image,
     Animal_Banner_image,
     Dog,
+    Cat,
+    Rabbit,
+    Hamster,
+    Horse,
     features: [
         {
             image : Home_dog,
@@ -172,7 +180,7 @@ export const animals = [
     },
     {
         id: 11,
-        image : Dog,
+        image : Cat,
         name: 'Whiskers',
         desc: 'Loves to nap in the sun.',
         bannerImages: ['./cat1.png', './cat2.png', './cat3.png', './cat4.png'],
@@ -185,7 +193,7 @@ export const animals = [
     },
     {
         id: 12,
-        image: Dog,
+        image: Cat,
         name: 'Luna',
         desc: 'A curious kitten that loves to explore.',
         bannerImages: ['./cat5.png', './cat6.png', './cat7.png', './cat8.png'],
@@ -198,7 +206,7 @@ export const animals = [
     },
     {
         id: 13,
-        image: Dog,
+        image: Cat,
         name: 'Shadow',
         desc: 'Quiet and affectionate.',
         bannerImages: ['./cat9.png', './cat10.png', './cat11.png', './cat12.png'],
@@ -211,7 +219,7 @@ export const animals = [
     },
     {
         id: 14,
-        image: Dog,
+        image: Cat,
         name: 'Mittens',
         desc: 'Loves to play with toys.',
         bannerImages: ['./cat13.png', './cat14.png', './cat15.png', './cat16.png'],
@@ -224,7 +232,7 @@ export const animals = [
     },
     {
         id: 15,
-        image: Dog,
+        image: Cat,
         name: 'Oliver',
         desc: 'Always looking for a lap to sit on.',
         bannerImages: ['./cat17.png', './cat18.png', './cat19.png', './cat20.png'],
@@ -237,7 +245,7 @@ export const animals = [
     },
     {
         id: 16,
-        image: Dog,
+        image: Cat,
         name: 'Nala',
         desc: 'Adventurous and bold.',
         bannerImages: ['./cat21.png', './cat22.png', './cat23.png', './cat24.png'],
@@ -250,7 +258,7 @@ export const animals = [
     },
     {
         id: 17,
-        image: Dog,
+        image: Cat,
         name: 'Simba',
         desc: 'A playful kitten with lots of energy.',
         bannerImages: ['./cat25.png', './cat26.png', './cat27.png', './cat28.png'],
@@ -263,7 +271,7 @@ export const animals = [
     },
     {
         id: 18,
-        image: Dog,
+        image: Cat,
         name: 'Cleo',
         desc: 'Enjoys lounging on the windowsill.',
         bannerImages: ['./cat29.png', './cat30.png', './cat31.png', './cat32.png'],
@@ -276,7 +284,7 @@ export const animals = [
     },
     {
         id: 19,
-        image: Dog,
+        image: Cat,
         name: 'Tiger',
         desc: 'Likes to chase laser pointers.',
         bannerImages: ['./cat33.png', './cat34.png', './cat35.png', './cat36.png'],
@@ -289,7 +297,7 @@ export const animals = [
     },
     {
         id: 20,
-        image: Dog,
+        image: Cat,
         name: 'Chloe',
         desc: 'Loves attention and purring loudly.',
         bannerImages: ['./cat37.png', './cat38.png', './cat39.png', './cat40.png'],
@@ -302,12 +310,11 @@ export const animals = [
     },
     {
         id: 21,
-        image: Dog,
+        image: Rabbit,
         name: 'Buddy',
         desc: 'A playful and energetic puppy.',
         bannerImages: [Home_dog,Home_dog,Home_dog,Home_dog],
-        type: 'other_animals',
-        subtype: 'rabbit',
+        type: 'rabbit',
         breed: 'Golden Retriever',
         age: 'puppy',
         gender: 'male',
@@ -316,12 +323,11 @@ export const animals = [
     },
     {
         id: 22,
-        image: Dog,
+        image: Rabbit,
         name: 'Bella',
         desc: 'Loves to cuddle and is great with kids.',
         bannerImages: ['./dog5.png', './dog6.png', './dog7.png', './dog8.png'],
-        type: 'other_animals',
-        subtype: 'rabbit',
+        type: 'rabbit',
         breed: 'Labrador Retriever',
         age: 'young',
         gender: 'female',
@@ -330,12 +336,11 @@ export const animals = [
     },
     {
         id: 23,
-        image: Dog,
+        image: Rabbit,
         name: 'Charlie',
         desc: 'Loyal and protective.',
         bannerImages: ['./dog9.png', './dog10.png', './dog11.png', './dog12.png'],
-        type: 'other_animals',
-        subtype: 'rabbit',
+        type: 'rabbit',
         breed: 'German Shepherd',
         age: 'adult',
         gender: 'male',
@@ -344,12 +349,11 @@ export const animals = [
     },
     {
         id: 24,
-        image: Dog,
+        image: Hamster,
         name: 'Lucy',
         desc: 'Calm and gentle.',
         bannerImages: ['./dog13.png', './dog14.png', './dog15.png', './dog16.png'],
-        type: 'other_animals',
-        subtype: 'ducks',
+        type: 'hamster',
         breed: 'Beagle',
         age: 'young',
         gender: 'female',
@@ -358,12 +362,11 @@ export const animals = [
     },
     {
         id: 25,
-        image: Dog,
+        image: Hamster,
         name: 'Max',
         desc: 'A great companion for hikes.',
         bannerImages: ['./dog17.png', './dog18.png', './dog19.png', './dog20.png'],
-        type: 'other_animals',
-        subtype: 'ducks',
+        type: 'hamster',
         breed: 'Border Collie',
         age: 'adult',
         gender: 'male',
@@ -372,12 +375,11 @@ export const animals = [
     },
     {
         id: 26,
-        image: Dog,
+        image: Hamster,
         name: 'Daisy',
         desc: 'Full of energy and loves to run.',
         bannerImages: ['./dog21.png', './dog22.png', './dog23.png', './dog24.png'],
-        type: 'other_animals',
-        subtype: 'ducks',
+        type: 'hamster',
         breed: 'Dalmatian',
         age: 'puppy',
         gender: 'female',
@@ -386,12 +388,11 @@ export const animals = [
     },
     {
         id: 27,
-        image: Dog,
+        image: Horse,
         name: 'Rocky',
         desc: 'Brave and courageous.',
         bannerImages: ['./dog25.png', './dog26.png', './dog27.png', './dog28.png'],
-        type: 'other_animals',
-        subtype: 'horse',
+        type: 'horse',
         breed: 'Rottweiler',
         age: 'adult',
         gender: 'male',
@@ -400,12 +401,11 @@ export const animals = [
     },
     {
         id: 28,
-        image: Dog,
+        image: Horse,
         name: 'Molly',
         desc: 'Sweet and friendly.',
         bannerImages: ['./dog29.png', './dog30.png', './dog31.png', './dog32.png'],
-        type: 'other_animals',
-        subtype: 'horse',
+        type: 'horse',
         breed: 'Poodle',
         age: 'young',
         gender: 'female',
@@ -414,32 +414,30 @@ export const animals = [
     },
     {
         id: 29,
-        image: Dog,
+        image: Horse,
         name: 'Cooper',
         desc: 'Always ready for an adventure.',
         bannerImages: ['./dog33.png', './dog34.png', './dog35.png', './dog36.png'],
-        type: 'other_animals',
-        subtype: 'horse',
+        type: 'horse',
         breed: 'Husky',
         age: 'young',
         gender: 'male',
         year: '2024',
         color: 'gray and white'
     },
-    {
-        id: 30,
-        image: Dog,
-        name: 'Sadie',
-        desc: 'Loves belly rubs and treats.',
-        bannerImages: ['./dog37.png', './dog38.png', './dog39.png', './dog40.png'],
-        type: 'other_animals',
-        subtype: 'horse',
-        breed: 'Bulldog',
-        age: 'adult',
-        gender: 'female',
-        year: '2024',
-        color: 'brindle'
-    },
+    // {
+    //     id: 30,
+    //     image: Horse,
+    //     name: 'Sadie',
+    //     desc: 'Loves belly rubs and treats.',
+    //     bannerImages: ['./dog37.png', './dog38.png', './dog39.png', './dog40.png'],
+    //     type: 'horse',
+    //     breed: 'Bulldog',
+    //     age: 'adult',
+    //     gender: 'female',
+    //     year: '2024',
+    //     color: 'brindle'
+    // },
 ];
 
 
