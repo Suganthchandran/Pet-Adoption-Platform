@@ -1,21 +1,19 @@
-// controllers/animalController.js
 const Animal = require('../modals/AnimalModals');
 const cloudinary = require('cloudinary').v2;
 
 exports.createAnimal = async (req, res) => {
     try {
-        // Upload the image to Cloudinary
         const { image, bannerImages, ...animalData } = req.body;
 
-        const imageUploadResult = await cloudinary.uploader.upload(image, { folder: 'animals' }); // Upload main image
+        const imageUploadResult = await cloudinary.uploader.upload(image, { folder: 'animals' });
         const bannerImagesUploadPromises = bannerImages.map(async (img) => {
             return await cloudinary.uploader.upload(img, { folder: 'animals' });
         });
-        const bannerImagesUploadResults = await Promise.all(bannerImagesUploadPromises); // Upload banner images
+        const bannerImagesUploadResults = await Promise.all(bannerImagesUploadPromises);
 
         const animal = new Animal({
-            image: imageUploadResult.secure_url, // Store the Cloudinary URL
-            bannerImages: bannerImagesUploadResults.map(img => img.secure_url), // Store Cloudinary URLs
+            image: imageUploadResult.secure_url,
+            bannerImages: bannerImagesUploadResults.map(img => img.secure_url),
             ...animalData
         });
 
@@ -26,7 +24,6 @@ exports.createAnimal = async (req, res) => {
     }
 };
 
-// Get all animals
 exports.getAllAnimals = async (req, res) => {
     try {
         const animals = await Animal.find();
@@ -36,7 +33,6 @@ exports.getAllAnimals = async (req, res) => {
     }
 };
 
-// Get a single animal by ID
 exports.getAnimalById = async (req, res) => {
     try {
         const animal = await Animal.findById(req.params.id);
@@ -49,7 +45,6 @@ exports.getAnimalById = async (req, res) => {
     }
 };
 
-// Update an existing animal
 exports.updateAnimal = async (req, res) => {
     try {
         const { image, bannerImages, ...animalData } = req.body;
@@ -58,14 +53,14 @@ exports.updateAnimal = async (req, res) => {
 
         if (image) {
             const imageUploadResult = await cloudinary.uploader.upload(image, { folder: 'animals' });
-            updatedAnimalData.image = imageUploadResult.secure_url; // Update the image URL
+            updatedAnimalData.image = imageUploadResult.secure_url;
         }
 
         if (bannerImages && bannerImages.length > 0) {
             const bannerImagesUploadPromises = bannerImages.map(async (img) => {
                 return await cloudinary.uploader.upload(img, { folder: 'animals' });
             });
-            updatedAnimalData.bannerImages = (await Promise.all(bannerImagesUploadPromises)).map(img => img.secure_url); // Update banner images URLs
+            updatedAnimalData.bannerImages = (await Promise.all(bannerImagesUploadPromises)).map(img => img.secure_url);
         }
 
         const updatedAnimal = await Animal.findByIdAndUpdate(req.params.id, updatedAnimalData, { new: true, runValidators: true });
@@ -78,7 +73,6 @@ exports.updateAnimal = async (req, res) => {
     }
 };
 
-// Delete an animal
 exports.deleteAnimal = async (req, res) => {
     try {
         const deletedAnimal = await Animal.findByIdAndDelete(req.params.id);
