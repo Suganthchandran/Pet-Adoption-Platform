@@ -28,12 +28,12 @@ const Navbar = () => {
       <nav className="navbar-content">
         <ul>
           <li><a href="/">HOME</a></li>
-          <li><a href="#">ANIMALS</a></li>
-          <li><a href="#">SHOP</a></li>
-          <li><a href="#">ABOUT US</a></li>
+          <li><a href="/shop">SHOP</a></li>
+          <li><a href="/about">ABOUT US</a></li>
+          <li><a href="/contact">CONTACT</a></li>
           {
             user ? 
-            <li><Link to='/login'>{user.name.toUpperCase()}</Link></li>
+            <li><Link to='/login'>{user.name.charAt(0)}</Link></li>
             :
             <li><Link to='/login'>LOGIN</Link></li>
           }

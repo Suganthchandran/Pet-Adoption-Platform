@@ -11,6 +11,9 @@ import Footer from './components/Footer'
 import Dogs from './pages/Dogs'
 import Cats from './pages/Cats'
 import OtherAnimals from './pages/OtherAnimals'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import Shop from './pages/Shop'
 
 axios.defaults.baseURL = 'http://localhost:8086'
 axios.defaults.withCredentials = true
@@ -29,6 +32,9 @@ function App() {
               <Route path='/dogs' element={<Dogs/>} />
               <Route path='/cats' element={<Cats/>} />
               <Route path='/other-animals' element={<OtherAnimals/>} />
+              <Route path='/about' element={<About/>} />
+              <Route path='/contact' element={<Contact/>} />
+              <Route path='/shop' element={<Shop/>} />
           </Routes>
       </UserContextProvider>
       </BrowserRouter>
