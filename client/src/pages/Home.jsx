@@ -1,13 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { motion } from 'framer-motion';
-import { UserContext } from '../../context/UserContext';
 import { assets } from '../assets/assets';
 import '../styles/Home.css';
 import Navbar from '../components/Navbar';
 import { Tilt } from 'react-tilt';
 import Features from '../components/Features';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../components/Footer';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -31,7 +29,6 @@ const hoverEffect = {
 };
 
 const Home = () => {
-    const { user } = useContext(UserContext);
 
     const navigate = useNavigate();
 
@@ -41,7 +38,7 @@ const Home = () => {
 
     return (
         <div className='home'>
-            <Navbar />
+            <Navbar/>
             <section className="home-image" style={{ backgroundImage: `url(${assets.Home_image})` }}>
                 <h1 className='home-title'>CUDDLY ANIMALIA SOCIETY</h1>
                 <div className="overlay"></div>
@@ -112,7 +109,6 @@ const Home = () => {
             <div>
                 <Features/>
             </div>
-            <Footer/>
         </div>
 
     );

@@ -1,22 +1,21 @@
-import axios from 'axios'
 import React from 'react'
 import { useState } from 'react'
-import toast from 'react-hot-toast'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import '../styles/SignUp.css'
 import { assets } from '../assets/assets'
 import { MdEmail } from "react-icons/md";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { auth, db } from '../firebase/config'
+import {setDoc,doc} from 'firebase/firestore'
+import toast from 'react-hot-toast'
 
 const SignUp = () => {
 
-  const navigate = useNavigate();
-  const [data, setData] = useState({
-    name: '',
-    email: '',
-    password: '',
-  })
+  const [name,setName] = useState('')
+  const [email,setEmail] = useState('')
+  const [password,setPassword] = useState('')
   const [showPassword,setShowPassword] = useState(false)
 
   const togglePasswordVisibility = () => {
@@ -25,29 +24,30 @@ const SignUp = () => {
 
   const registerUser = async (e) => {
     e.preventDefault();
-    const { name, email, password } = data;
     try {
-      const { data } = await axios.post('/api/auth/register', {
-        name, email, password
-      })
-      if (data.error) {
-        toast.error(data.error)
+      await createUserWithEmailAndPassword(auth,email,password);
+      const user = auth.currentUser;
+      console.log(user);
+      if(user) {
+        await setDoc(doc(db, "Users", user.uid),{
+          email:user.email,
+          name:name
+        })
       }
-      else {
-        setData({});
-        toast.success(`Login Successfully. Welcome !!!`);
-        navigate('/login');
-      }
+      console.log("User Register Successfully");
+      toast.success("User Register Successfully");
     }
-    catch (error) {
-      console.log(error);
+    catch(error) {
+      console.log(error.message);
+      toast.error(error.message);
     }
+    
   }
 
   return (
 
     <div className='signup-main'>
-      <div className='signup-container'> {/* New container */}
+      <div className='signup-container'>
         <div className='signup-image-container'>
           <img className='signup-image' src={assets.SignUp_Image} alt='signup_Image' />
         </div>
@@ -57,8 +57,8 @@ const SignUp = () => {
               <input
                 type="text"
                 required
-                value={data.name}
-                onChange={(e) => setData({ ...data, name: e.target.value })}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
               <label>
                 <span style={{ transitionDelay: '0ms' }}>U</span>
@@ -76,8 +76,8 @@ const SignUp = () => {
               <input
                 type="email"
                 required
-                value={data.email}
-                onChange={(e) => setData({ ...data, email: e.target.value })}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <label>
                 <span style={{ transitionDelay: '0ms' }}>E</span>
@@ -93,8 +93,8 @@ const SignUp = () => {
               <input
                 type={showPassword ? "text" : "password"}
                 required
-                value={data.password}
-                onChange={(e) => setData({ ...data, password: e.target.value })}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <label>
                 <span style={{ transitionDelay: '0ms' }}>P</span>
@@ -113,6 +113,8 @@ const SignUp = () => {
 
             <button className='signup-button' type="submit">Register</button>
           </form>
+          <p>Already Have an account? </p>
+          <Link to='/login'>Login</Link>
         </div>
       </div>
     </div>
