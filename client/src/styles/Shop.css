@@ -1,0 +1,192 @@
+.product-list {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.product-card {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    padding: 2rem;
+    margin: 2rem 0;
+    width: 100%;
+    gap: 2rem; /* Adjusted gap for better spacing */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.image-card {
+    flex: 0 0 40%; /* Maintain the width of the image card */
+    border-radius: 12px;
+    overflow: hidden; /* Ensure rounded corners */
+    display: flex; /* Added to ensure the image is centered */
+    justify-content: center; /* Centering the image */
+    align-items: center; /* Centering the image */
+    height: 420px; /* Set a fixed height for the image card */
+}
+
+.image-card img {
+    width: 100%; /* Ensures the image takes the full width of the card */
+    height: 100%; /* Set height to 100% to fill the card */
+    object-fit: contain; 
+}
+
+.details-card {
+    flex: 1; /* Make details take remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
+
+.details-card h3 {
+    font-size: 2.5rem; /* Adjusted font size */
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.details-card p {
+    font-size: 1.5rem; /* Adjusted font size */
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+.price {
+    font-size: 1.5rem; /* Adjusted font size */
+    font-weight: bold;
+    color: #f33;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.add-to-cart, .buy-now {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    margin-right: 1rem;
+    margin-top: 1rem; 
+    transition: background-color 0.2s ease;
+}
+
+.quantity-controls button {
+    padding: 0.5rem 1rem;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    transition: background-color 0.2s ease;
+}
+
+.quantity-controls button:hover {
+    background-color: #ccc;
+}
+
+.quantity-controls span {
+    margin: 0 0.75rem;
+    font-size: 1.4rem;
+}
+
+.select-size {
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+}
+
+.select-size select {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+}
+
+.add-to-cart {
+    background-color: #c3c3c3;
+    color: #333;
+}
+
+.add-to-cart:hover {
+    background-color: #e0e0e0;
+}
+
+.buy-now {
+    background-color: #333;
+    color: #fff;
+}
+
+.buy-now:hover {
+    background-color: #555;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.rating .star {
+    color: #ffa500;
+    font-size: 2rem;
+    margin-right: 0.2rem;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; 
+    margin: 2rem; 
+    margin-top: 0rem;
+}
+
+.refresh-button, .next-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    margin: 0 1rem; /* Space between buttons */
+    transition: background-color 0.2s ease;
+}
+
+.refresh-button {
+    background-color: #c3c3c3;
+    color: #333;
+}
+
+.refresh-button:hover {
+    background-color: #e0e0e0;
+}
+
+.next-button {
+    background-color: #333;
+    color: #fff;
+}
+
+.next-button:hover {
+    background-color: #555;
+}
+.cart-icon {
+    right: 20px; 
+    background-color: #f8f9fa; 
+    padding: 0px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+   
+}
+
+.cart-icon:hover {
+    background-color: #e9ecef; 
+}
+
+.cart-count {
+  
+
+    right: -20px; 
+    background-color: #dc3545; 
+    color: white; 
+    border-radius: 50%;
+    padding: 2px 6px; 
+    font-size: 20px;
+    font-weight: bold; 
+}
