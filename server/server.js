@@ -25,7 +25,7 @@ app.use(express.urlencoded({extended:false}));
 connectDB();
 connectCloudinary();
 
-app.use('/api/auth',authRouter)
+// app.use('/api/auth',authRouter)
 app.use('/api/animal',AnimalRouter)
 
 app.listen(PORT,()=>{

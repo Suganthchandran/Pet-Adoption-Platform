@@ -5,7 +5,8 @@ import { UserContext } from '../../context/UserContext';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const {user} = useContext(UserContext);
+  const {userDetails, handleLogout} = useContext(UserContext);
+
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
@@ -32,8 +33,11 @@ const Navbar = () => {
           <li><a href="/about">ABOUT US</a></li>
           <li><a href="/contact">CONTACT</a></li>
           {
-            user ? 
-            <li><Link to='/login'>{user.name.charAt(0)}</Link></li>
+            userDetails ? 
+            <>
+            <li><Link to='/login'>{userDetails.name.toUpperCase()}</Link></li>
+            <li className='navbar-logout' onClick={handleLogout}>LOGOUT</li>
+            </>
             :
             <li><Link to='/login'>LOGIN</Link></li>
           }

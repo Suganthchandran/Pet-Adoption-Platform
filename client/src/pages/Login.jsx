@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
 import { assets } from '../assets/assets';
 import { MdEmail } from "react-icons/md";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase/config';
+import toast from 'react-hot-toast';
 
 const Login = () => {
-  const navigate = useNavigate();
-  const [data, setData] = useState({
-    email: '',
-    password: '',
-  });
+
+  const [email,setEmail] = useState('')
+  const [password,setPassword] = useState('')
   const [showPassword,setShowPassword] = useState(false)
 
   const togglePasswordVisibility = () => {
@@ -21,22 +20,23 @@ const Login = () => {
 
   const loginUser = async (e) => {
     e.preventDefault();
-    const { email, password } = data;
     try {
-      const { data } = await axios.post('/api/auth/login', {
-        email,
-        password,
-      });
-      if (data.error) {
-        toast.error(data.error);
-      } else {
-        setData({});
-        navigate('/');
-      }
-    } catch (error) {
-      console.log(error);
+      await signInWithEmailAndPassword(auth,email,password);
+      console.log("User Logged In Successfully");
+      window.location.href = "/";
+      toast.success("User Logged In Successfully");
+    }
+    catch(error) {
+      console.log(error.message);
+      toast.error(error.message);
     }
   };
+
+  const handlePasswordReset = async () => {
+    const email = prompt('Please Enter your email');
+    sendPasswordResetEmail(auth, email);
+    alert('Email sent! Check your inbox for password reset instructions...')
+  }
 
   return (
     <div className='login-main'>
@@ -50,8 +50,8 @@ const Login = () => {
               <input
                 type="email"
                 required
-                value={data.email}
-                onChange={(e) => setData({ ...data, email: e.target.value })}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <label>
                 <span style={{ transitionDelay: '0ms' }}>E</span>
@@ -62,13 +62,13 @@ const Login = () => {
               </label>
               <div className='login-email-icon'><MdEmail /></div>
             </div>
-  
+
             <div className="login-form-control">
               <input
                 type={showPassword ? "text" : "password"}
                 required
-                value={data.password}
-                onChange={(e) => setData({ ...data, password: e.target.value })}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <label>
                 <span style={{ transitionDelay: '0ms' }}>P</span>
@@ -84,14 +84,17 @@ const Login = () => {
                 {showPassword ? <FaEyeSlash/> : <FaEye />}
                 </div>
             </div>
-  
+
             <button className='login-button' type="submit">Login</button>
           </form>
+          <p onClick={handlePasswordReset}>Forgot Password ?</p>
+          <p>Don't Have an account? </p>
+          <Link to='/register'>Sign Up</Link>
         </div>
       </div>
     </div>
   );
-  
+
 };
 
 export default Login;
