@@ -10,7 +10,12 @@ const animalSchema = new mongoose.Schema({
     age: { type: String },
     gender: { type: String },
     year: { type: String },
-    color: { type: String }
+    color: { type: String },
+    location: {type: String},
+    stack: {type: Number},
+    ownerName: {type: String},
+    phone: {type:String},
+    email: {type: String}
 }, { timestamps: true });
 
 const Animal = mongoose.model('Animal', animalSchema);

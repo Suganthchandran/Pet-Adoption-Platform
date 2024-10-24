@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/Contact.css';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import DogImage from '../assets/Dog_image.jpg';
+import {assets} from '../assets/assets';
 
 const ContactPage = () => {
   return (
@@ -10,7 +10,7 @@ const ContactPage = () => {
       <Navbar />
       <section
         className="dog-banner-image"
-        style={{ backgroundImage: `url(${DogImage})` }}
+        style={{ backgroundImage: `url(${assets.Dog_image})` }}
       >
         <h1 className='dog-banner-title'>DOGS AT CAS</h1>
         <p className='dog-banner-desc'>
@@ -44,7 +44,6 @@ const ContactPage = () => {
          
         </form>
       </section>
-      <Footer />
     </>
   );
 };

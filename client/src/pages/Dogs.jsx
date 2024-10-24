@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import AnimalCards from '../components/AnimalCards';
@@ -20,10 +20,8 @@ const Dogs = () => {
         year: ''
     });
 
-    const [filteredAnimals, setFilteredAnimals] = useState([]);
-
     // Extract unique filter values (only from dogs)
-    const dogs = animals.filter(animal => animal.type === 'dog'); // Filter only dogs
+    const dogs = animals?.filter(animal => animal.type === 'dog') || [];
     const uniqueBreeds = [...new Set(dogs.map(animal => animal.breed))];
     const uniqueAges = [...new Set(dogs.map(animal => animal.age))];
     const uniqueGenders = [...new Set(dogs.map(animal => animal.gender))];
@@ -33,12 +31,12 @@ const Dogs = () => {
     // Update filters based on dropdown selection
     const handleFilterChange = (e) => {
         const { name, value } = e.target;
-        setFilters({ ...filters, [name]: value });
+        setFilters(prevFilters => ({ ...prevFilters, [name]: value }));
     };
 
     // Filter the dogs based on selected filters
-    useEffect(() => {
-        let filtered = dogs.filter(animal => {
+    const filteredAnimals = useMemo(() => {
+        return dogs.filter(animal => {
             return (
                 (!filters.breed || animal.breed === filters.breed) &&
                 (!filters.age || animal.age === filters.age) &&
@@ -47,12 +45,11 @@ const Dogs = () => {
                 (!filters.year || animal.year === filters.year)
             );
         });
-        setFilteredAnimals(filtered);
     }, [filters, dogs]);
 
     return (
         <>
-        <Navbar/>
+        <Navbar />
             <section className="dog-banner-image" style={{ backgroundImage: `url(${assets.Dog_image})` }}>
                 <h1 className='dog-banner-title'>DOGS AT CAS</h1>
                 <p className='dog-banner-desc'>They come in all shapes and sizes, with different histories, characters and disabilities. But they have one thing in common: they are all in need of a helping hand</p>
@@ -116,14 +113,14 @@ const Dogs = () => {
 
             {/* Displaying the filtered dogs */}
             <div className="dog-right">
-                <h1>DOGS : </h1>
+                <h1>DOGS:</h1>
                 <div className="dog-products">
                     {filteredAnimals.length > 0 ? (
                         filteredAnimals.map((animal, index) => (
                             <AnimalCards
                                 key={index}
                                 name={animal.name}
-                                id={animal.id}
+                                id={animal._id}
                                 year={animal.year}
                                 image={animal.image}
                             />
@@ -134,7 +131,6 @@ const Dogs = () => {
                 </div>
             </div>
         </div>
-        <Footer/>
         </>
     );
 };

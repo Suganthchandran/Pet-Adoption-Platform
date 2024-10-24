@@ -1,32 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import '../styles/Shop.css';
-import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import { FaShoppingCart } from 'react-icons/fa'; // Import cart icon
-import DogImage from '../assets/Dog_image.jpg'; // Example image
-import Df from '../assets/df1.jpg'; 
-import Dff from '../assets/df2.jpeg'; 
-
-const products = [
-  {
-    id: 1,
-    name: 'Himalaya Healthy Pet Food - Puppy - Chicken & Rice',
-    price: 650,
-    image: Df,
-  },
-  {
-    id: 2,
-    name: 'Royal Canin Dry Dog Food - Medium Adult',
-    price: 750,
-    image: Dff,
-  },
-  {
-    id: 3, 
-    name: 'Himalaya Healthy Pet Food - Puppy - Chicken & Rice',
-    price: 750,
-    image: Df,
-  },
-];
+import { FaShoppingCart } from 'react-icons/fa';
+import { assets } from '../assets/assets';
+import { UserContext } from '../../context/UserContext';
 
 const Shop = () => {
   const [cartCount, setCartCount] = useState(0); // State to keep track of items in the cart
@@ -43,33 +20,34 @@ const Shop = () => {
     console.log("Next button clicked");
   };
 
+  const { products } = useContext(UserContext);
+
   return (
     <>
       <Navbar />
-     
+
       <section
         className="dog-banner-image"
-        style={{ backgroundImage: `url(${DogImage})` }}
+        style={{ backgroundImage: `url(${assets.Dog_image})` }}
       >
         <h1 className="dog-banner-title">DOGS AT CAS</h1>
         <p className="dog-banner-desc">
-          They come in all shapes and sizes, with different histories, characters, and disabilities. 
+          They come in all shapes and sizes, with different histories, characters, and disabilities.
           But they have one thing in common: they are all in need of a helping hand.
         </p>
         <div className="overlay"></div>
       </section>
-     
+
       {/* Cart Icon */}
       <div className="cart-icon" onClick={() => alert(`Items in Cart: ${cartCount}`)}>
         <FaShoppingCart size={30} />
         {cartCount > 0 && <span className="cart-count">{cartCount}</span>} {/* Show count if > 0 */}
       </div>
-      
-     
+
       {/* Product List Section */}
       <section className="product-list">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} onAddToCart={handleAddToCart} />
+          <ProductCard key={product._id} product={product} onAddToCart={handleAddToCart} />
         ))}
       </section>
 
@@ -83,13 +61,15 @@ const Shop = () => {
         </button>
       </div>
 
-      <Footer />
     </>
   );
 };
 
 const ProductCard = ({ product, onAddToCart }) => {
   const [quantity, setQuantity] = useState(1);
+  const [selectedSize, setSelectedSize] = useState(product.sizes[0]); // Default to the first size
+
+  const { addToCart } = useContext(UserContext);
 
   const handleIncrease = () => {
     setQuantity((prev) => prev + 1);
@@ -101,8 +81,13 @@ const ProductCard = ({ product, onAddToCart }) => {
     }
   };
 
+  const handleSizeChange = (event) => {
+    setSelectedSize(event.target.value); // Update selected size
+  };
+
   const handleAddToCartClick = () => {
     onAddToCart(); // Call the function to update cart count
+    addToCart(product._id, selectedSize); // Pass the product ID and selected size to the addToCart function
   };
 
   return (
@@ -114,25 +99,26 @@ const ProductCard = ({ product, onAddToCart }) => {
         <h3>{product.name}</h3>
         <p className="price">₹ {product.price}</p>
         <div className="rating">
-          <span className="star">★</span>
-          <span className="star">★</span>
-          <span className="star">★</span>
-          <span className="star">★</span>
-          <span className="star">★</span>
+          {Array(product.star).fill('★').map((star, index) => (
+            <span key={index} className="star">{star}</span>
+          ))}
         </div>
+
         <div className="select-size">
-          <label htmlFor={`size-${product.id}`}>Size: </label>
-          <select id={`size-${product.id}`} name="size">
-            <option value="1kg">1 kg</option>
-            <option value="2kg">2 kg</option>
-            <option value="5kg">5 kg</option>
+          <label htmlFor={`size-${product._id}`}>Size: </label>
+          <select id={`size-${product._id}`} name="size" value={selectedSize} onChange={handleSizeChange}>
+            {product.sizes.map((size, index) => (
+              <option key={index} value={size}>{size}</option>
+            ))}
           </select>
         </div>
+
         <div className="quantity-controls">
           <button onClick={handleDecrease}>-</button>
           <span>{quantity}</span>
           <button onClick={handleIncrease}>+</button>
         </div>
+        
         <div>
           <button className="add-to-cart" onClick={handleAddToCartClick}>Add to Cart</button>
           <button className="buy-now">Buy Now</button>

@@ -6,6 +6,7 @@ const authRouter = require('./src/routes/AuthRoutes');
 const connectDB = require('./src/config/DBconfig');
 const AnimalRouter = require('./src/routes/AnimalRoutes');
 const connectCloudinary   = require('./src/config/Cloudinary');
+const ProductRouter = require('./src/routes/productRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 4005
@@ -27,6 +28,7 @@ connectCloudinary();
 
 // app.use('/api/auth',authRouter)
 app.use('/api/animal',AnimalRouter)
+app.use('/api/product',ProductRouter)
 
 app.listen(PORT,()=>{
     console.log(`Server is running on http://localhost:${PORT}`);

@@ -130,7 +130,6 @@ const OtherAnimals = () => {
                 </div>
             </div>
         </div>
-        <Footer/>
         </>
     );
 };
