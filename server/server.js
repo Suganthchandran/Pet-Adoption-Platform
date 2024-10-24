@@ -2,11 +2,11 @@ const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const authRouter = require('./src/routes/AuthRoutes');
 const connectDB = require('./src/config/DBconfig');
 const AnimalRouter = require('./src/routes/AnimalRoutes');
 const connectCloudinary   = require('./src/config/Cloudinary');
 const ProductRouter = require('./src/routes/productRoutes');
+const userRouter = require('./src/routes/userRoute');
 
 const app = express();
 const PORT = process.env.PORT || 4005
@@ -26,9 +26,10 @@ app.use(express.urlencoded({extended:false}));
 connectDB();
 connectCloudinary();
 
-// app.use('/api/auth',authRouter)
+app.use('/api/user', userRouter)
 app.use('/api/animal',AnimalRouter)
 app.use('/api/product',ProductRouter)
+
 
 app.listen(PORT,()=>{
     console.log(`Server is running on http://localhost:${PORT}`);

@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=FontName:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Outfit;
+}
+
+.active {
+    background-color: bisque;
+    border-color: rgb(151, 86, 5);
+}
+
+.app {
+    background-color: rgb(230, 230, 230,0.2);
+    min-height: 100vh;
+}
+
+.app-main {
+    display: flex;
+    width: 100%;
+}
+
+.app-content {
+    width: 70%;
+    margin-left: max(5vw, 25px);
+    margin-right: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: #4b5563;
+    font-size: 1rem;
+}
