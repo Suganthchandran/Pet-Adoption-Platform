@@ -39,6 +39,9 @@ function App() {
               <Route path='/cart' element={<Cart/>} />
               <Route path='/place-order' element={<PlaceOrder/>} />
               <Route path='/orders' element={<Orders/>} />
+              <div>
+                
+              </div>
           </Routes>
       </UserContextProvider>
       <Footer/>
