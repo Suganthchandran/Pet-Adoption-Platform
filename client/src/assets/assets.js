@@ -12,6 +12,9 @@ import Cat from './Cat.webp'
 import Rabbit from './Rabbit.jpeg'
 import Hamster from './Hamster.jpg'
 import Horse from './Horse.jpeg'
+import bin_icon from './bin_icon.png'
+import stripe from './stripe_logo.png'
+import razorpay from './razorpay_logo.png'
 
 export const assets = {
     login_image,
@@ -28,6 +31,9 @@ export const assets = {
     Rabbit,
     Hamster,
     Horse,
+    bin_icon,
+    stripe,
+    razorpay,
     features: [
         {
             image : Home_dog,

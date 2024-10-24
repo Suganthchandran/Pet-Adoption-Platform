@@ -14,6 +14,9 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Shop from './pages/Shop'
 import Footer from './components/Footer'
+import Cart from './pages/Cart'
+import PlaceOrder from './pages/PlaceOrder'
+import Orders from './pages/Orders'
 
 axios.defaults.baseURL = 'http://localhost:8086'
 axios.defaults.withCredentials = true
@@ -33,6 +36,9 @@ function App() {
               <Route path='/about' element={<About/>} />
               <Route path='/contact' element={<Contact/>} />
               <Route path='/shop' element={<Shop/>} />
+              <Route path='/cart' element={<Cart/>} />
+              <Route path='/place-order' element={<PlaceOrder/>} />
+              <Route path='/orders' element={<Orders/>} />
           </Routes>
       </UserContextProvider>
       <Footer/>

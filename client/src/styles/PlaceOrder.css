@@ -1,0 +1,141 @@
+.placeorder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 2rem !important;
+    min-height: 80vh;
+    border-top: 1px solid black;
+    padding: 0 7%;
+    overflow-x: hidden;
+}
+
+.placeorder-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 35%;
+}
+
+.placeorder-info-form-pair {
+    display: flex;
+    gap: 1rem;
+}
+
+.placeorder-info-form-input {
+    font-size: 1rem;
+    color: grey;
+    font-weight: 300;
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 4px;
+    width: 100%;
+    padding: 0.8rem 0.8rem;
+    margin-bottom: 0.1rem;
+}
+
+.placeorder-right {
+    margin-top: 2rem;
+    width: 55%;
+    margin-right: -250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.placeorder-amount {
+    margin-top: 1rem;
+    width: 1500px;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: start;
+}
+
+.placeorder-payment-main {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    gap : 1.5rem;
+}
+
+.placorder-payment-method-list {
+    display: flex;
+    gap: 0.75rem;
+    flex-direction: row;
+}
+
+.placeorder-payment-method {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid rgb(190, 190, 190);
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+}
+
+.placeorder-payment-method-ptag {
+    min-width: 1rem;
+    height: 1rem;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 9999px;
+}
+
+.placeorder-payment-image {
+    height: 1.25rem;
+    margin: 0 1rem;
+}
+
+.placeorder-payment-cod {
+    color: grey;
+    font-weight: 500;
+    font-size: 1.25rem;
+    margin: 0 1rem;
+}
+
+.placeorder-method-active {
+    background-color: rgb(16, 194, 16);
+}
+
+.placeorder-payment-container {
+    width: 100%;
+    align-items: end;
+    text-align: center;
+}
+
+.placeorder-payment-button {
+    background-color: black;
+    color: white;
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    padding: 0.75rem 3.5rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.placeorder-payment-button:active {
+    background-color: grey;
+}
+
+@media (max-width: 1024px) {
+    .placorder-payment-method-list {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 640px) {
+    .placeorder {
+        flex-direction: column;
+        padding-top: 3.5rem;
+    }
+
+    .placeorder-left, .placeorder-right {
+        width: 100%;
+    }
+
+    .placeorder-amount, .placeorder-payment-main {
+        width: 100%;
+    }
+}

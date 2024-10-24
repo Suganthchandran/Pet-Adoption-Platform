@@ -7,35 +7,60 @@ import toast from 'react-hot-toast';
 export const UserContext = createContext({});
 
 export function UserContextProvider({ children }) {
+
+    const currency = '$';
+    const delivery_fee = 30;
     const [user, setUser] = useState(null);
     const [userDetails, setUserDetails] = useState(null);
     const [animals, setAnimals] = useState([]);
     const [products, setProducts] = useState([]);
-    const [cartItems,setCartItems] = useState({});
+    const [cartItems, setCartItems] = useState(() => {
+        // Retrieve cart from localStorage on initial load
+        const savedCart = localStorage.getItem('cartItems');
+        return savedCart ? JSON.parse(savedCart) : {};
+    });
     // const navigate = useNavigate();
 
-    const addToCart = async (itemId,size) => {
-        let cardData = structuredClone(cartItems);
-
-        if(!size) {
-            toast.error('Please Select the Size');
-            return;
+    const addToCart = async (itemId, size) => {
+        let cartData = structuredClone(cartItems);
+      
+        if (!size) {
+          toast.error('Please Select the Size');
+          return;
         }
 
-        if(cardData[itemId]) {
-            if(cardData[itemId][size]) {
-                cardData[itemId][size] += 1;
-            }
-            else {
-                cardData[itemId][size] = 1;
+        if (cartData[itemId]) {
+          if (cartData[itemId][size]) {
+            cartData[itemId][size] += 1;
+          } else {
+            cartData[itemId][size] = 1;
+          }
+        } else {
+          cartData[itemId] = { [size]: 1 };
+        }
+
+        setCartItems(cartData);
+        localStorage.setItem('cartItems', JSON.stringify(cartData)); // Persist cart to localStorage
+        console.log("Cart Items:", cartItems);
+      };
+      
+
+    const getCartCount = () => {
+        let totalCount = 0;
+
+        for(const items in cartItems) {
+            for(const item in cartItems[items]) {
+                try {
+                    if(cartItems[items][item] > 0) {
+                        totalCount += cartItems[items][item];
+                    }
+                }
+                catch(error) {
+
+                }
             }
         }
-        else {
-            cardData[itemId] = {};
-            cardData[itemId][size] = 1;
-        }
-        setCartItems(cardData);
-        console.log(cartItems);
+        return totalCount;
     }
 
     useEffect(() => {
@@ -94,6 +119,34 @@ export function UserContextProvider({ children }) {
         }
     };
 
+    const updateQuantity = async (itemId,size,quantity)=> {
+        let cartData = structuredClone(cartItems);
+
+        cartData[itemId][size] = quantity;
+
+        setCartItems(cartData);
+        localStorage.setItem('cartItems', JSON.stringify(cartData)); 
+    }
+
+    const getCartAmount =  ()=> {
+        let totalAmount = 0;
+
+        for(const items in cartItems) {
+            let itemInfo = products.find((product)=> product._id === items);
+            for(const item in cartItems[items]) {
+                try {
+                    if(cartItems[items][item] > 0) {
+                        totalAmount += itemInfo.price * cartItems[items][item];
+                    }
+                }
+                catch(error) {
+
+                }
+            } 
+        }
+        return totalAmount;
+    }
+
     useEffect(() => {
         fetchUserData();
         fetchAnimalsData();
@@ -101,7 +154,7 @@ export function UserContextProvider({ children }) {
     }, []);
 
     return (
-        <UserContext.Provider value={{ user, setUser, animals, products, handleLogout, userDetails, addToCart}}>
+        <UserContext.Provider value={{ user, setUser, animals, products, handleLogout, userDetails, addToCart, cartItems, updateQuantity, currency, delivery_fee, getCartAmount, getCartCount}}>
             {children}
         </UserContext.Provider>
     );

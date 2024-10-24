@@ -1,0 +1,18 @@
+.carttotal {
+    width : 40%;
+}
+
+.carttotal-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+    font-size: 1.7rem;
+    font-family: karla;
+}
+
+.carttotal-amount {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

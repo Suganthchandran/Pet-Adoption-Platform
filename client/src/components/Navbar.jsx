@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import '../styles/Navbar.css';
 import { UserContext } from '../../context/UserContext';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const {userDetails, handleLogout} = useContext(UserContext);
-
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const { userDetails, handleLogout } = useContext(UserContext);
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
@@ -23,6 +23,10 @@ const Navbar = () => {
     };
   }, []);
 
+  const toggleDropdown = () => {
+    setDropdownVisible(!dropdownVisible);
+  };
+
   return (
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-logo">CAS</div>
@@ -35,8 +39,16 @@ const Navbar = () => {
           {
             userDetails ? 
             <>
-            <li><Link to='/login'>{userDetails.name.toUpperCase()}</Link></li>
-            <li className='navbar-logout' onClick={handleLogout}>LOGOUT</li>
+              <li onClick={toggleDropdown} style={{cursor:'pointer'}} className="navbar-user">
+                {userDetails.name.toUpperCase()}
+                {dropdownVisible && (
+                  <ul className="navbar-dropdown">
+                    <li><Link to="/cart">CART</Link></li>
+                    <li><Link to="/orders">ORDERS</Link></li>
+                    <li className='navbar-logout' onClick={handleLogout}>LOGOUT</li>
+                  </ul>
+                )}
+              </li>
             </>
             :
             <li><Link to='/login'>LOGIN</Link></li>

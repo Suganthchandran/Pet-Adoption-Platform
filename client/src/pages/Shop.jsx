@@ -60,7 +60,6 @@ const Shop = () => {
           Next
         </button>
       </div>
-
     </>
   );
 };
@@ -86,8 +85,8 @@ const ProductCard = ({ product, onAddToCart }) => {
   };
 
   const handleAddToCartClick = () => {
-    onAddToCart(); // Call the function to update cart count
-    addToCart(product._id, selectedSize); // Pass the product ID and selected size to the addToCart function
+    onAddToCart(); // Update cart count
+    addToCart(product._id, selectedSize); // Add product with selected size and quantity to cart
   };
 
   return (
@@ -118,7 +117,7 @@ const ProductCard = ({ product, onAddToCart }) => {
           <span>{quantity}</span>
           <button onClick={handleIncrease}>+</button>
         </div>
-        
+
         <div>
           <button className="add-to-cart" onClick={handleAddToCartClick}>Add to Cart</button>
           <button className="buy-now">Buy Now</button>
