@@ -14,6 +14,8 @@ const PORT = process.env.PORT || 4005
 
 const corsOptions = {
     origin: 'http://localhost:5173',
+    origin: 'http://localhost:5174',
+    origin: 'http://localhost:5175',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   };
@@ -26,9 +28,9 @@ app.use(express.urlencoded({extended:false}));
 connectDB();
 connectCloudinary();
 
-app.use('/api/user', userRouter)
 app.use('/api/animal',AnimalRouter)
 app.use('/api/product',ProductRouter)
+app.use('/api/user', userRouter)
 
 
 app.listen(PORT,()=>{
