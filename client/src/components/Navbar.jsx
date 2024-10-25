@@ -31,11 +31,11 @@ const Navbar = () => {
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-logo">CAS</div>
       <nav className="navbar-content">
-        <ul>
-          <li><a href="/">HOME</a></li>
-          <li><a href="/shop">SHOP</a></li>
-          <li><a href="/about">ABOUT US</a></li>
-          <li><a href="/contact">CONTACT</a></li>
+        <ul>  
+          <li><Link to="/">HOME</Link></li>
+          <li><Link to="/shop">SHOP</Link></li>
+          <li><Link to="/about">ABOUT US</Link></li>
+          <li><Link to="/contact">CONTACT</Link></li>
           {
             userDetails ? 
             <>

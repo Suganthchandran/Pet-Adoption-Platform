@@ -29,7 +29,7 @@ function App() {
       <UserContextProvider>
           <Toaster position='top-center' toastOptions={{duration:2000}} />
           <Routes>
-              <Route path='/' element={<Home/>} />
+              <Route path="/" element={<Home/>} />
               <Route path='/login' element={<Login/>} />
               <Route path='/register' element={<SignUp/>} />
               <Route path='/dogs' element={<Dogs/>} />

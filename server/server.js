@@ -12,11 +12,23 @@ const app = express();
 const PORT = process.env.PORT || 4005
 
 
+const allowedOrigins = [
+  'https://cuddly-animalia-society.onrender.com',
+  ...Array.from({ length: 65535 }, (_, i) => `http://localhost:${i + 1}`)
+];
+
 const corsOptions = {
-  origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'],  
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 };
+
   
 app.use(cors(corsOptions));
 app.use(express.json());
