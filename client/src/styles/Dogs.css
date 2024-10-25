@@ -5,7 +5,8 @@
     padding-top: 2.5rem;
     border-top: 1px solid black;
     padding: 3rem 5%;
-    background-color: rgb(238, 238, 238,0.5);
+    background-color: rgb(255, 255, 255);
+    min-height: 90vh;
 }
 
 .dog-banner-image {
@@ -215,4 +216,24 @@
     .dog-products {
         grid-template-columns: repeat(3, 1fr);
     }
+}
+
+.dogs-no-search-para {
+    position: absolute;
+    left: 720px;
+    top: 1110px;
+    font-size: 2.5rem;
+    font-family: karla;
+    z-index: 1;
+}
+
+.dogs-no-search-logo {
+    position: relative;
+    z-index: 0;
+    margin-left: 25rem;
+}
+
+.dogs-no-search-logo img {
+    width: 500px;
+    height: 500px;
 }

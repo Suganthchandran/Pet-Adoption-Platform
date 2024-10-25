@@ -15,7 +15,11 @@ const animalSchema = new mongoose.Schema({
     stack: {type: Number},
     ownerName: {type: String},
     ownerphone: {type:String},
-    owneremail: {type: String}
+    owneremail: {type: String},
+    certificates: {
+        type: [String],
+        required: false
+    }
 }, { timestamps: true });
 
 const Animal = mongoose.model('Animal', animalSchema);

@@ -1,0 +1,108 @@
+.form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .form-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 700px;
+    height: 900px;
+    animation: popUp 0.3s forwards;
+  }
+  
+  @keyframes popUp {
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  .form-content h2 {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 700;
+    font-family: karla;
+    letter-spacing: 0rem;
+    margin: 1.5rem 0;
+  }
+  
+  form {
+    margin-left: 4.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    font-size: 1.25rem;
+    display: flex;
+    font-family: mooli;
+    text-align: start;
+  }
+  
+  .form-group input[type='text'], input[type='email'],
+  input[type='date'] {
+    font-size: 1.1rem;
+    width: 87%;
+    padding: 0.85rem 1rem;
+    border: 1px solid gray;
+    font-family: karla;
+  }
+  
+  .form-button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .form-button {
+    background-color: black;
+    color: white;
+    font-size: 1.4rem;
+    padding: 0.75rem 1.5rem;
+    margin-right: 5rem !important;
+    margin: 0.5rem 0;
+    cursor: pointer;
+  }
+  
+  .form-button:hover {
+    background-color: grey;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-weight: normal;
+    font-size: 3rem;
+    cursor: pointer;
+    color: black;
+  }
+
+  .adopt-form-textarea {
+    width: 88%;
+    height: 100px;
+    padding: 14px 1rem;
+    font-family: karla;
+    font-size: 1.1rem;
+  }

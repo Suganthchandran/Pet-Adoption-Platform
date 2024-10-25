@@ -125,7 +125,12 @@ const Cats = () => {
                                 />
                             ))
                         ) : (
-                            <p>No cats found for the selected filters.</p>
+                            <div>
+                        <p className='cats-no-search-para'>No cats found for the selected filters.</p>
+                        <div className='cats-no-search-logo'>
+                            <img src={assets.no_Cat} alt='' />
+                        </div>
+                        </div>
                         )}
                     </div>
                 </div>

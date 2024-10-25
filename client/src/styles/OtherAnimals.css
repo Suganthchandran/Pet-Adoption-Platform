@@ -5,7 +5,8 @@
     padding-top: 2.5rem;
     border-top: 1px solid black;
     padding: 3rem 5%;
-    background-color: rgb(238, 238, 238,0.5);
+    background-color: rgb(255, 255, 255);
+    min-height: 90vh;
 }
 
 .other_animals-banner-image {
@@ -215,4 +216,25 @@
     .other_animals-products {
         grid-template-columns: repeat(3, 1fr);
     }
+}
+
+.other-no-search-para {
+    position: absolute;
+    left: 721px;
+    top: 1110px;
+    font-size: 2.5rem;
+    font-family: karla;
+    z-index: 1;
+}
+
+.other-no-search-logo {
+    position: relative;
+    z-index: 0;
+    margin-left: 31rem;
+    margin-top: 6rem;
+}
+
+.other-no-search-logo img {
+    width: 350px;
+    height: 350px;
 }

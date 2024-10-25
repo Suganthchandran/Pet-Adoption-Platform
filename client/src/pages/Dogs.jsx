@@ -20,7 +20,6 @@ const Dogs = () => {
         year: ''
     });
 
-    // Extract unique filter values (only from dogs)
     const dogs = animals?.filter(animal => animal.type === 'dog') || [];
     const uniqueBreeds = [...new Set(dogs.map(animal => animal.breed))];
     const uniqueAges = [...new Set(dogs.map(animal => animal.age))];
@@ -28,13 +27,11 @@ const Dogs = () => {
     const uniqueColors = [...new Set(dogs.map(animal => animal.color))];
     const uniqueYears = [...new Set(dogs.map(animal => animal.year))];
 
-    // Update filters based on dropdown selection
     const handleFilterChange = (e) => {
         const { name, value } = e.target;
         setFilters(prevFilters => ({ ...prevFilters, [name]: value }));
     };
 
-    // Filter the dogs based on selected filters
     const filteredAnimals = useMemo(() => {
         return dogs.filter(animal => {
             return (
@@ -57,7 +54,6 @@ const Dogs = () => {
             </section>
         <div className="dog">
 
-            {/* Filter Dropdowns */}
             <div className="dog-filter-options">
                 <h1 className='dog-filter-head'>FILTERS</h1>
                 <div className="dog-filter-dropdown">
@@ -111,7 +107,6 @@ const Dogs = () => {
                 </div>
             </div>
 
-            {/* Displaying the filtered dogs */}
             <div className="dog-right">
                 <h1>DOGS:</h1>
                 <div className="dog-products">
@@ -126,7 +121,12 @@ const Dogs = () => {
                             />
                         ))
                     ) : (
-                        <p>No dogs found for the selected filters.</p>
+                        <div>
+                        <p className='dogs-no-search-para'>No dogs found for the selected filters.</p>
+                        <div className='dogs-no-search-logo'>
+                            <img src={assets.no_Dog} alt='' />
+                        </div>
+                        </div>
                     )}
                 </div>
             </div>

@@ -6,14 +6,14 @@ import { assets } from '../assets/assets';
 import { UserContext } from '../../context/UserContext';
 
 const Shop = () => {
-  const [cartCount, setCartCount] = useState(0); // State to keep track of items in the cart
+  const [cartCount, setCartCount] = useState(0); 
 
   const handleAddToCart = () => {
-    setCartCount((prevCount) => prevCount + 1); // Increment cart count
+    setCartCount((prevCount) => prevCount + 1); 
   };
 
   const handleRefresh = () => {
-    window.location.reload(); // Refreshes the page
+    window.location.reload(); 
   };
 
   const handleNext = () => {
@@ -28,9 +28,9 @@ const Shop = () => {
 
       <section
         className="dog-banner-image"
-        style={{ backgroundImage: `url(${assets.Dog_image})` }}
+        style={{ backgroundImage: `url(${assets.shop})` }}
       >
-        <h1 className="dog-banner-title">DOGS AT CAS</h1>
+        <h1 className="dog-banner-title">SHOPS AT CAS</h1>
         <p className="dog-banner-desc">
           They come in all shapes and sizes, with different histories, characters, and disabilities.
           But they have one thing in common: they are all in need of a helping hand.
@@ -38,11 +38,11 @@ const Shop = () => {
         <div className="overlay"></div>
       </section>
 
-      {/* Cart Icon */}
+      {/* Cart Icon
       <div className="cart-icon" onClick={() => alert(`Items in Cart: ${cartCount}`)}>
         <FaShoppingCart size={30} />
-        {cartCount > 0 && <span className="cart-count">{cartCount}</span>} {/* Show count if > 0 */}
-      </div>
+        {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+      </div> */}
 
       {/* Product List Section */}
       <section className="product-list">
@@ -66,7 +66,7 @@ const Shop = () => {
 
 const ProductCard = ({ product, onAddToCart }) => {
   const [quantity, setQuantity] = useState(1);
-  const [selectedSize, setSelectedSize] = useState(product.sizes[0]); // Default to the first size
+  const [selectedSize, setSelectedSize] = useState(product.sizes[0]); 
 
   const { addToCart } = useContext(UserContext);
 
@@ -81,12 +81,12 @@ const ProductCard = ({ product, onAddToCart }) => {
   };
 
   const handleSizeChange = (event) => {
-    setSelectedSize(event.target.value); // Update selected size
+    setSelectedSize(event.target.value); 
   };
 
   const handleAddToCartClick = () => {
-    onAddToCart(); // Update cart count
-    addToCart(product._id, selectedSize); // Add product with selected size and quantity to cart
+    onAddToCart();
+    addToCart(product._id, selectedSize); 
   };
 
   return (

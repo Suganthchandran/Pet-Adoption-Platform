@@ -6,7 +6,7 @@
     align-items: center;
     height: auto; 
     width: 100%;   
-    background-color: #f9f9f9;
+    /* background-color: #ff0000; */
     padding: 40px 20px;
     box-sizing: border-box;
   }
@@ -15,11 +15,14 @@
     flex-direction: column; 
     align-items: center; 
     justify-content: center; 
-    height: 400px; 
-    background-color: #f9f9f9; 
+    height: 480px; 
+    /* background-color: #f9f9f9;  */
     padding: 20px;
     box-sizing: border-box; 
     margin: 20px 0; 
+    margin-top: 5rem;
+    margin-bottom: 7rem;
+
   }
   
   .location-icon {
@@ -63,7 +66,6 @@
   .contact-form {
     width: 100%;
     max-width: 1000px; 
-    background-color: transparent;
     padding: 30px;
     border-radius: 5px;
     border: 1px solid #eae8e8;
@@ -141,3 +143,212 @@
     }
   }
   
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  gap:2rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+  border-top: 1px solid black;
+  padding-top: 5rem;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: row;
+}
+
+.contact-items-icon {
+    font-size: 2rem;
+}
+
+.contact-items-text1 {
+  font-size: 1.5rem;
+  max-width: 800px;
+  text-align: center;
+  font-family: karla;
+  line-height: 2.2rem;
+}
+
+.contact-items-text2 {
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: karla;
+  margin-left: 1rem;
+}
+
+.contact-items-text3 {
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: karla;
+  margin-left: 1rem;
+}
+
+.title-main{
+  display: flex;
+  gap: 1.3rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-left: -20px;
+}
+
+.title-p{
+  font-weight: 500;
+  color: rgb(118, 118, 118);
+}
+
+.title-span{
+  margin-left: 0.8rem;
+  font-weight: 600;
+  color: black;
+}
+
+.title-line{
+  width: 5rem;
+  height: 1px;
+  margin-top: 7px;
+  color: black;
+}
+
+.title-main2{
+  display: flex;
+  gap: 1.3rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-left: -20px;
+  margin-bottom: 2.5rem;
+}
+
+#contact-button1 {
+  background-color: black;
+  color: white;
+  font-size: 1.4rem;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
+#contact-button2 {
+  background-color: black;
+  color: white;
+  font-size: 1.4rem;
+  padding: 1rem 2rem;
+  margin-top: 0.8rem;
+  margin-bottom: 3rem;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+
+.add-image-list {
+  display: flex;
+  flex-direction: row;
+  gap:1rem;
+}
+
+.add-image {
+  width: 130px;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding: 5rem;
+  padding-left: 7rem;
+  justify-content: center;
+  border: 1px solid black;
+  gap:1rem;
+}
+
+.add-image-head {
+  margin-bottom: 1rem;
+}
+
+.add-name-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.8rem 1.5rem;
+  margin-top: 0.75rem;
+}
+
+.add-input-container {
+  width: 100%;
+}
+
+.add-form-select {
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+
+.add-form-select-head {
+  margin-bottom: 0.5rem;
+}
+
+.add-form-content {
+  display: flex;
+  flex-direction: column;
+  gap:2rem;
+}
+
+.add-form-mini-content {
+  display: flex;
+  flex-direction: row;
+  gap:5rem;
+}
+
+.add-price-input {
+  width: 100%;
+  padding: 0.75rem 1.2rem;
+  margin-top: 0.5rem;
+  width: 75px;
+  /* font-size: 1.1rem; */
+}
+
+.add-content2 {
+  display: flex;
+  flex-direction: row;
+  gap:3rem;
+  margin-top: 1rem;
+}
+
+.add-size {
+  display: flex;
+  flex-direction: row;
+  gap:1rem;
+}
+
+.add-size-p {
+  background-color: rgb(235, 215, 201);
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+  display: block;
+  margin-top: 0.85rem;    
+}
+
+.add-size-click {
+  border: 2px solid rgb(202, 110, 44);
+  background-color: bisque;
+}
+
+.add-bestseller {
+  display: flex;
+  gap:0.5rem;
+  flex-direction: row;
+  margin-top: 0.5rem;
+}
+
+.form-add-button {
+  background-color: black;
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.5rem 2.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  width: 25%;
+  margin-left: 160px;
+}
+
+.form-add-button:hover {
+  background-color: grey;
+}

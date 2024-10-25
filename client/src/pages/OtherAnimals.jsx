@@ -51,7 +51,7 @@ const OtherAnimals = () => {
         <>
         <Navbar/>
             <section className="other_animals-banner-image" style={{ backgroundImage: `url(${assets.Animal_Banner_image})` }}>
-                <h1 className='other_animals-banner-title'>Other Animals AT CAS</h1>
+                <h1 className='other_animals-banner-title'>OTHER ANIMALS AT CAS</h1>
                 <p className='other_animals-banner-desc'>They come in all shapes and sizes, with different histories, characters and disabilities. But they have one thing in common: they are all in need of a helping hand</p>
                 <div className="overlay"></div>
             </section>
@@ -119,13 +119,18 @@ const OtherAnimals = () => {
                             <AnimalCards
                                 key={index}
                                 name={animal.name}
-                                id={animal.id}
+                                id={animal._id}
                                 year={animal.year}
                                 image={animal.image}
                             />
                         ))
                     ) : (
-                        <p>No Other Animals found for the selected filters.</p>
+                        <div>
+                        <p className='other-no-search-para'>No Animals found for the selected filters.</p>
+                        <div className='other-no-search-logo'>
+                            <img src={assets.no_Animal} alt='' />
+                        </div>
+                        </div>
                     )}
                 </div>
             </div>

@@ -1,0 +1,65 @@
+.certificate-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .certificate-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .certificate-card {
+    display: inline-block;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7.5rem;
+    border-radius: 8px;
+  }
+  
+  .pdf-placeholder {
+    width: 300px;
+    height: 250px;
+    border: 1px solid grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  
+  .certificate-download-button {
+    background-color: black;
+    color: white;
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+      text-decoration: none;
+    font-weight: 800;
+    margin-top: 2rem;
+  }
+  
+  .certificate-download-button:hover {
+    background-color: grey;
+  }
+  
+  .certificate-not-found {
+    width: 500px;
+    position: relative;
+    margin-left: 5rem;
+    margin-top: 14rem;
+  }
+
+  .certificate-not-title {
+    position: absolute;
+    top:260px;
+    left: 160px;
+    font-size: 2rem;
+    font-family: karla;
+    font-weight: 700;
+  } 
+
+.pdf-image {
+  width: 400px;
+  height: 200px;
+}

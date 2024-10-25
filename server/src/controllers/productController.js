@@ -4,37 +4,43 @@ const Product = require('../modals/productModal');
 exports.createProduct = async (req, res) => {
     try {
         const { sizes, name, price, category, star } = req.body;
-        const image = req.body.image;
 
-
-        if (!image) {
-            return res.status(400).json({ error: 'No image provided' });
+        if (!req.file) {
+            return res.status(400).json({ error: 'No image file provided' });
         }
 
-        const imageUploadResult = await cloudinary.uploader.upload(image, { folder: 'products' })
-        .catch((err) => {
-            console.error('Cloudinary upload failed:', err);
-            throw new Error('Image upload failed');
-        });
+        const imageUploadResult = await new Promise((resolve, reject) => {
+            const stream = cloudinary.uploader.upload_stream({ folder: 'products' }, (error, result) => {
+                if (error) {
+                    console.error('Cloudinary upload failed:', error);
+                    reject(new Error('Image upload failed'));
+                }
+                resolve(result);
+            });
 
-        console.log(imageUploadResult)
-    
+            stream.end(req.file.buffer);
+        });
 
         const product = new Product({
             image: imageUploadResult.secure_url,
-            sizes,
+            sizes: JSON.parse(sizes),
             name,
-            price,
+            price: Number(price),
             category,
-            star
+            star: Number(star)
         });
 
         await product.save();
-        res.status(201).json(product);
+
+        res.json({
+            success: true,
+            message: "Product Added Successfully"
+        });
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
 };
+
 
 
 exports.getAllProducts = async (req, res) => {

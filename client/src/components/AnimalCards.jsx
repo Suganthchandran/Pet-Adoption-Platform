@@ -5,7 +5,7 @@ import '../styles/AnimalCards.css'
 const AnimalCards = ({id,image,name,year}) => {
 
   return (
-    <Link to={`/${id}`} className='animal-item'>
+    <Link to={`/animal/${id}`} className='animal-item'>
         <div className='animal-item-imagebox'>
             <img className='animal-item-image' src={image} alt={name} />
         </div>

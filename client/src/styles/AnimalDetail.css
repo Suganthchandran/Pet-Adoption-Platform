@@ -1,0 +1,265 @@
+.animal-banner-image {
+    position: relative;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  .animal-banner-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .animal-banner-desc {
+    font-size: 1.2rem;
+    text-align: center;
+    width: 60%;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    z-index: 1;
+  }
+  
+  .animal-banner-image * {
+    z-index: 2;
+  }
+  
+.animal-info {
+    padding: 40px 20px;
+    background-color: #f8f8f8;
+  }
+  
+  .info-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 100px;
+    text-align: center;
+    padding: 10px 20px;
+  }
+  
+  .info-grid div {
+    position: relative;
+    padding: 10px 20px;
+  }
+  
+  .info-grid div::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -50px;
+    height: 100%;
+    width: 1px;
+    background-color: #000000;
+     /* Red line */
+  }
+  
+  .info-grid div:last-child::after {
+    display: none;
+  }
+  
+  .info-grid div strong {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
+  }
+  
+  .info-grid div p {
+    font-size: 1rem;
+    color: #777;
+    margin: 0;
+  }
+  
+  /* Second Row (Color and Breed) */
+  .second-row {
+    display: flex;
+    justify-content: center;
+    gap: 105px;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: -11px;
+  }
+  
+  .second-row div {
+    position: relative; 
+    padding: 20px 20px;
+  }
+  
+  .second-row div::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -50px;
+    height: 90%;
+    width: 1px;
+    background-color: #000000; 
+  }
+  
+  .second-row div:last-child::after {
+    display: none;
+  }
+  
+  .second-row div strong {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
+  }
+  
+  .second-row div p {
+    font-size: 1rem;
+    color: #777;
+    margin: 0;
+  }
+  .second-row div:last-child::after {
+    display: none;
+  }
+  
+  .animal-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 20px;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+  }
+  
+  .animal-gallery img {
+    width: 500px;
+    height: 400px;
+    object-fit: cover;
+    border: 2px solid grey;
+  }
+  
+
+.adopt-certificate {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 50px 100px;
+}
+
+.adopt-section, .certificate-section {
+    width: 600px; 
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 120px 20px 40px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.adopt-section::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 150px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.certificate-section::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 150px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.adopt-section::before {
+    background-image: url('../assets/as.webp');
+}
+
+.certificate-section::before {
+    background-image: url('../assets/cer.webp'); 
+}
+
+.adopt-section h3, .certificate-section h3 {
+    font-size: 2rem;
+    font-family: mooli;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.adopt-section p, .certificate-section p {
+    font-size: 1.17rem;
+    margin-bottom: 20px;
+    text-align: start !important;
+    padding: 1rem 2rem;
+    color: #373737;
+}
+
+.adopt-button {
+  background-color: black;
+  color: white;
+  font-size: 1.4rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
+
+.adopt-button:hover {
+    background-color: grey;
+}
+
+.certificate-button {
+  background-color: black;
+  color: white;
+  font-size: 1.4rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
+
+.certificate-button:hover {
+    background-color: grey;
+}
+.about-animal {
+    background-color: #f9f9f9;
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    margin: 20px 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 70px;
+}
+
+.about-animal h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333; 
+    text-align: center;
+    font-family: mooli;
+}
+
+.about-animal p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    text-align: center;
+    font-family: karla;
+}

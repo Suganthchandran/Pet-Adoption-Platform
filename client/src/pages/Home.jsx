@@ -41,7 +41,7 @@ const Home = () => {
             <Navbar/>
             <section className="home-image" style={{ backgroundImage: `url(${assets.Home_image})` }}>
                 <h1 className='home-title'>CUDDLY ANIMALIA SOCIETY</h1>
-                <div className="overlay"></div>
+                <div className="overlay1"></div>
             </section>
 
             <motion.div
@@ -108,6 +108,33 @@ const Home = () => {
 
             <div>
                 <Features/>
+            </div>
+
+            <div className='home-last'>
+                <div className='home-last-container1'>
+                    <div>
+                        <div>
+                            <img className='home-last1-image1' src={assets.Dog_image} />
+                        </div>
+                        <img className='home-last1-image2' src={assets.Dog_image} />
+                    </div>
+                    <div className='home-last1-text'>
+                        <h1>Read More</h1>
+                    </div>
+                </div>
+
+                <div className='home-last-container2'>
+                    <div>
+                        <div>
+                            <img className='home-last2-image1' src={assets.Cat_image} />
+                        </div>
+                        <img className='home-last2-image2' src={assets.Cat_image} />
+                    </div>
+                    <div className='home-last2-text'>
+                        <h1>Read More</h1>
+                    </div>
+                </div>
+
             </div>
         </div>
 

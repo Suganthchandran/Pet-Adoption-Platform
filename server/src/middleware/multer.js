@@ -1,11 +1,7 @@
 const multer = require("multer");
 
-const storage = multer.diskStorage({
-    filename: function(req,file,callback) {
-        callback(null,file.originalname)
-    }
-})
+const storage = multer.memoryStorage(); // Store the image in memory for cloud upload
 
-const upload = multer({storage})
+const upload = multer({ storage });
 
-module.exports = upload
+module.exports = upload;

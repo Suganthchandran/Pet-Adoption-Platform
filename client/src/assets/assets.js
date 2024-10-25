@@ -15,6 +15,15 @@ import Horse from './Horse.jpeg'
 import bin_icon from './bin_icon.png'
 import stripe from './stripe_logo.png'
 import razorpay from './razorpay_logo.png'
+import no_Dog from './no_dogs.jpg'
+import no_Cat from './no_cats.jpg'
+import no_Animal from './no_animals.jpg'
+import add_icon from './add_icon.png'
+import upload_area from './upload_area.png'
+import shop from './shop.jpg'
+import contact from './contact.webp'
+import noCertificate from './no-certi.webp'
+import pdf from './pdf2.png'
 
 export const assets = {
     login_image,
@@ -34,6 +43,15 @@ export const assets = {
     bin_icon,
     stripe,
     razorpay,
+    no_Dog,
+    no_Cat,
+    no_Animal,
+    add_icon,
+    upload_area,
+    shop,
+    contact,
+    noCertificate,
+    pdf,
     features: [
         {
             image : Home_dog,

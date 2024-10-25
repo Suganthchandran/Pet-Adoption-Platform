@@ -13,7 +13,7 @@
     object-fit: cover;
 }
 
-.overlay {
+.overlay1 {
     position: absolute;
     top: 0;
     left: 0;
@@ -147,4 +147,76 @@
     .home-type h1 {
         font-size: 1.2rem;
     }
+}
+
+
+.home-last {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem 15%;
+    gap:5rem;
+    margin-bottom: 5rem;
+}
+
+.home-last-container1 {
+    width: 550px;
+    border: 1px solid grey;
+}
+
+.home-last1-image1 {
+    width: 550px;
+    height: 380px;
+    position: relative;
+}
+
+.home-last1-image2 {
+    width: 100px;
+    height: 90px;
+    position: absolute;
+    top: 2710px;
+    left: 497px;
+    border-radius: 100%;
+    border: 2px solid grey;
+}
+
+.home-last1-text {
+    font-size: 1.1rem;
+    background-color: black;
+    color: white;
+    padding: 15px ;
+    text-align: center;
+    margin-top: 3.5rem;
+    cursor: pointer;
+}
+
+.home-last-container2 {
+    width: 550px;
+    border: 1px solid grey;
+}
+
+.home-last2-image1 {
+    width: 550px;
+    height: 380px;
+    position: relative;
+}
+
+.home-last2-image2 {
+    width: 100px;
+    height: 90px;
+    position: absolute;
+    top: 2715px;
+    left: 1285px;
+    border-radius: 100%;
+    border: 2px solid grey;
+}
+
+.home-last2-text {
+    font-size: 1.1rem;
+    background-color: black;
+    color: white;
+    padding: 15px ;
+    text-align: center;
+    margin-top: 3.5rem;
+    cursor: pointer;
 }

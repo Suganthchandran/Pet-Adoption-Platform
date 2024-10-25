@@ -17,11 +17,13 @@ import Footer from './components/Footer'
 import Cart from './pages/Cart'
 import PlaceOrder from './pages/PlaceOrder'
 import Orders from './pages/Orders'
+import AnimalDetail from './components/AnimalDetail'
 
 axios.defaults.baseURL = 'http://localhost:8086'
 axios.defaults.withCredentials = true
 
 function App() {
+  
   return (
     <>
       <UserContextProvider>
@@ -39,9 +41,7 @@ function App() {
               <Route path='/cart' element={<Cart/>} />
               <Route path='/place-order' element={<PlaceOrder/>} />
               <Route path='/orders' element={<Orders/>} />
-              <div>
-                
-              </div>
+              <Route path='/animal/:id' element={<AnimalDetail/>} />
           </Routes>
       </UserContextProvider>
       <Footer/>
