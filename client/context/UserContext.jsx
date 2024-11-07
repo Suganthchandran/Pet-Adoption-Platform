@@ -125,7 +125,7 @@ export function UserContextProvider({ children }) {
     const handleLogout = async () => {
         try {
             await auth.signOut();
-            window.location.href = '/login';
+            navigate('/login');
             toast.success('User logged out successfully');
         } catch (error) {
             toast.error('Error logging out:', error.message);
