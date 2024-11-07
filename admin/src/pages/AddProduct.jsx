@@ -50,6 +50,8 @@ const AddProduct = ({token}) => {
     }
 
   return (
+    <>
+        <h1>Add Products</h1>
     <form onSubmit={handleSubmit} className='add-form'>
         <div>
             <p className='add-image-head'>Upload Image</p>
@@ -105,6 +107,8 @@ const AddProduct = ({token}) => {
 
         <button type='submit' className='add-button'>ADD</button>
     </form>
+    </>
+
   )
 }
 

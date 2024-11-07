@@ -16,12 +16,10 @@
     color: black; 
     font-weight: 700;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between; /* Ensures equal space between items */
-    align-items: center; /* Centers items vertically */
-    gap: 2rem; /* Adjust gap between content and shipping area */
+    flex-direction: column;
+    gap: 2rem;
     font-family: karla;
-    flex-wrap: wrap; /* Allows wrapping for smaller screens */
+    flex-wrap: wrap;
 }
 
 .order-content {
@@ -30,12 +28,14 @@
     flex-direction: row;
     gap: 1.5rem;
     font-size: 1.2rem;
-    flex: 1; /* Ensure equal width for content */
-    min-width: 300px; /* Set a minimum width */
+    flex: 1;
+    min-width: 300px;
 }
 
 .order-content-image {
-    width: 7rem;
+    width: 120px;
+    object-fit: cover;
+    height: 7rem;
 }
 
 .order-info {
@@ -53,8 +53,8 @@
     align-items: center;
     margin-left: 10rem;
     justify-content: flex-start;
-    flex: 1; /* Ensure equal width for shipping info */
-    min-width: 200px; /* Set a minimum width */
+    flex: 1;
+    min-width: 200px;
 }
 
 .order-shipping-content {
@@ -63,7 +63,7 @@
     flex-direction: row;
     gap: 0.5rem;
     font-weight: 500;
-    white-space: nowrap; /* Keep 'Ready to Ship' text on one line */
+    white-space: nowrap;
 }
 
 .order-shipping-circle {
@@ -89,8 +89,8 @@
 
 @media (max-width: 768px) {
     .order-main {
-        flex-direction: column; /* Stack items vertically on smaller screens */
-        align-items: flex-start; /* Align items to the left */
+        flex-direction: column;
+        align-items: flex-start;
         gap: 1rem;
     }
 
@@ -110,4 +110,53 @@
     .order-track {
         align-self: flex-start;
     }
+}
+
+
+.orders-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.order-item {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+.order-items {
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+}
+
+.order-contents {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+
+.order-main-contents {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3,1fr);
+    width: 130%;
+}
+
+.order-mini-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap:5rem;
+    font-size: 1.3rem;
+    color: grey;
+}
+
+.order-details {
+    display: flex;
+    align-items: center;
+    gap:10rem;
 }

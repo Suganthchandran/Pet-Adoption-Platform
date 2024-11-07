@@ -88,6 +88,8 @@ const AddAnimal = ({ token }) => {
   
 
     return (
+        <>
+        <h1>Add Animals</h1>
         <form onSubmit={handleSubmit} className='add-form'>
             <div>
                 <p className='add-image-head'>Upload Image</p>
@@ -184,6 +186,7 @@ const AddAnimal = ({ token }) => {
 
             <button type='submit' className='add-button'>ADD</button>
         </form>
+        </>
     )
 }
 

@@ -10,6 +10,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth, db } from '../firebase/config'
 import {setDoc,doc} from 'firebase/firestore'
 import toast from 'react-hot-toast'
+import { updateProfile } from 'firebase/auth';
 
 const SignUp = () => {
 
@@ -25,23 +26,29 @@ const SignUp = () => {
   const registerUser = async (e) => {
     e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(auth,email,password);
+      // Create the user with email and password
+      await createUserWithEmailAndPassword(auth, email, password);
       const user = auth.currentUser;
-      console.log(user);
-      if(user) {
-        await setDoc(doc(db, "Users", user.uid),{
-          email:user.email,
-          name:name
-        })
+      
+      if (user) {
+        // Update the display name in the Firebase Authentication profile
+        await updateProfile(user, {
+          displayName: name
+        });
+  
+        // Save user data to Firestore
+        await setDoc(doc(db, "Users", user.uid), {
+          email: user.email,
+          name: name // Store the display name in Firestore as well
+        });
       }
-      console.log("User Register Successfully");
-      toast.success("User Register Successfully");
-    }
-    catch(error) {
+      
+      console.log("User Registered Successfully");
+      toast.success("User Registered Successfully");
+    } catch (error) {
       console.log(error.message);
       toast.error(error.message);
     }
-    
   }
 
   return (

@@ -1,0 +1,21 @@
+.list-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.list-table-head2, .list-table-content2 {
+    display: grid;
+    grid-template-columns: repeat(12,1fr); /* Adjust based on the number of columns */
+    align-items: center;
+    gap: 3.5rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.list-table-x {
+    cursor: pointer;
+    color: red;
+}

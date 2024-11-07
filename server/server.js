@@ -7,6 +7,9 @@ const AnimalRouter = require('./src/routes/AnimalRoutes');
 const connectCloudinary   = require('./src/config/Cloudinary');
 const ProductRouter = require('./src/routes/productRoutes');
 const userRouter = require('./src/routes/userRoute');
+const AdoptRouter = require('./src/routes/AdoptRoute');
+const usersRouter = require('./src/routes/users');
+const OrderRoute = require('./src/routes/OrderRoute');
 
 const app = express();
 const PORT = process.env.PORT || 4005
@@ -41,7 +44,9 @@ connectCloudinary();
 app.use('/api/animal',AnimalRouter)
 app.use('/api/product',ProductRouter)
 app.use('/api/user', userRouter)
-
+app.use('/api/orders', OrderRoute);
+app.use('/api/adopt', AdoptRouter)
+app.use('/api', usersRouter);
 
 app.listen(PORT,()=>{
     console.log(`Server is running on http://localhost:${PORT}`);

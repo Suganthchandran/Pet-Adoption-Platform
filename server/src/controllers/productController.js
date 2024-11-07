@@ -99,3 +99,26 @@ exports.deleteProduct = async (req, res) => {
         res.status(400).json({ error: error.message });
     }
 };
+
+exports.getProductsByIds = async (req, res) => {
+    try {
+        const { productIds } = req.body;
+    
+        if (!productIds || productIds.length === 0) {
+          return res.status(400).json({ error: 'No product IDs provided' });
+        }
+    
+        // Fetch products by productIds from the database
+        const products = await Product.find({ '_id': { $in: productIds } });
+    
+        if (products.length === 0) {
+          return res.status(404).json({ message: 'No products found' });
+        }
+    
+        // Respond with the products
+        res.status(200).json({ success: true, products });
+      } catch (error) {
+        console.error('Error fetching product details:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+      }
+};

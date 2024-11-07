@@ -36,6 +36,11 @@ const Sidebar = () => {
                 <img src={assets.order_icon} alt='Add Icon' />
                 <p className='sidebar-content-text'>Users</p>
             </NavLink>
+
+            <NavLink className='sidebar-elements' to="/adopt">
+                <img src={assets.order_icon} alt='Add Icon' />
+                <p className='sidebar-content-text'>Adopt</p>
+            </NavLink>
         </div>
     </div>
   )

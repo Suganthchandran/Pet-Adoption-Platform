@@ -104,7 +104,15 @@ const AnimalDetail = () => {
            </p>
           <button className="certificate-button" onClick={handleCertificateClick}>Get Certificate</button>
         </div>
-      {isModalOpen1 && <AdoptForm onClose={closeModal1} />}
+      {isModalOpen1 && 
+       <AdoptForm
+       onClose={closeModal1}
+       animalName={animal.name}
+       ownername={animal.ownerName}
+       owneremail={animal.owneremail}
+       ownerphone={animal.ownerphone}
+     />
+     }
       {isModalOpen2 && <Certificate certificate={animal.certificates} onClose={closeModal2} />} 
 
       </section>

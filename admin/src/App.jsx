@@ -14,6 +14,7 @@ import AddProduct from './pages/AddProduct'
 import ListAnimal from './pages/ListAnimal'
 import ListProduct from './pages/ListProduct'
 import Users from './pages/Users'
+import Adopt from './pages/Adopt'
 
 export const backendUrl = import.meta.env.VITE_BACKEND_URL
 
@@ -42,6 +43,7 @@ function App() {
                 <Route path='/listProduct' element={<ListProduct token={token}/>} />
                 <Route path='/orders' element={<Orders token={token} />} />
                 <Route path='/users' element={<Users token={token}/>} />
+                <Route path='/adopt' element={<Adopt/>} />
               </Routes>
             </div>
           </div>

@@ -160,8 +160,8 @@ exports.deleteAnimal = async (req, res) => {
         if (!deletedAnimal) {
             return res.status(404).json({ message: 'Animal not found' });
         }
-        res.status(200).json({ message: 'Animal deleted successfully' }); 
+        res.status(200).json({success: true, message: 'Animal deleted successfully' }); 
     } catch (error) {
-        res.status(400).json({ error: error.message }); 
+        res.status(400).json({success: false, error: error.message }); 
     }
 };

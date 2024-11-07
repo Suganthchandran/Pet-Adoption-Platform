@@ -18,6 +18,7 @@ import Cart from './pages/Cart'
 import PlaceOrder from './pages/PlaceOrder'
 import Orders from './pages/Orders'
 import AnimalDetail from './components/AnimalDetail'
+import Verify from './pages/Verify'
 
 axios.defaults.baseURL = 'http://localhost:8086'
 axios.defaults.withCredentials = true
@@ -42,6 +43,7 @@ function App() {
               <Route path='/place-order' element={<PlaceOrder/>} />
               <Route path='/orders' element={<Orders/>} />
               <Route path='/animal/:id' element={<AnimalDetail/>} />
+              <Route path='/verify' element={<Verify/>} />
           </Routes>
       </UserContextProvider>
       <Footer/>
