@@ -27,7 +27,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    background: rgba(0, 0, 0, 0.4);
     z-index: 1;
   }
   
@@ -62,7 +62,6 @@
     height: 100%;
     width: 1px;
     background-color: #000000;
-     /* Red line */
   }
   
   .info-grid div:last-child::after {
@@ -83,7 +82,6 @@
     margin: 0;
   }
   
-  /* Second Row (Color and Breed) */
   .second-row {
     display: flex;
     justify-content: center;

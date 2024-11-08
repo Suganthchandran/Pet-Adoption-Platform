@@ -6,7 +6,6 @@
     align-items: center;
     height: auto; 
     width: 100%;   
-    /* background-color: #ff0000; */
     padding: 40px 20px;
     box-sizing: border-box;
   }
@@ -16,7 +15,6 @@
     align-items: center; 
     justify-content: center; 
     height: 480px; 
-    /* background-color: #f9f9f9;  */
     padding: 20px;
     box-sizing: border-box; 
     margin: 20px 0; 
@@ -48,7 +46,7 @@
   }
   
   .location-map textarea:disabled {
-    background-color: #e9ecef; /* Light gray background for disabled state */
+    background-color: #e9ecef; 
   }
   
 
@@ -83,8 +81,8 @@
   }
   
   .form-row input {
-    width: 48%; /* Maintain spacing on smaller screens */
-    padding: 25px; /* Increased padding */
+    width: 48%;
+    padding: 25px; 
     font-size: 1rem;
     border: 1px solid #7a7979;
     border-radius: 5px;
@@ -94,7 +92,7 @@
   
   .contact-form textarea {
     width: 100%;
-    padding: 15px; /* Increased padding */
+    padding: 15px;
     margin-bottom: 40px;
     font-size: 1rem;
     border: 1px solid #717171;
@@ -102,19 +100,19 @@
     outline: none;
     resize: none;
     height: 150px;
-    background-color: transparent; /* Fixed height for the message area */
+    background-color: transparent; 
   }
   .button-container {
-    display: flex; /* Set to flexbox */
-    justify-content: center; /* Center the button horizontally */
-    width: 100%; /* Full width to make it centered properly */
-    margin-top: 10px; /* Optional: Add space above the button */
+    display: flex; 
+    justify-content: center; 
+    width: 100%;
+    margin-top: 10px; 
   }
   
   .contact-form button {
 
     padding: 20px 30px;
-    background-color: #333; /* Changed for better visibility */
+    background-color: #333; 
     color: white;
     border: none;
     border-radius: 2px;
@@ -123,8 +121,8 @@
     text-transform: uppercase;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
-    width: 200px; /* Set a fixed width */
-    margin-top: 10px; /* Optional: Add space above the button */ 
+    width: 200px; 
+    margin-top: 10px; 
    
   }
   
@@ -138,8 +136,8 @@
     }
     
     .form-row input {
-      width: 100%; /* Full width on smaller screens */
-      margin-bottom: 15px; /* Added margin for spacing */
+      width: 100%; 
+      margin-bottom: 15px; 
     }
   }
   
@@ -302,7 +300,6 @@
   padding: 0.75rem 1.2rem;
   margin-top: 0.5rem;
   width: 75px;
-  /* font-size: 1.1rem; */
 }
 
 .add-content2 {

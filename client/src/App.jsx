@@ -13,7 +13,6 @@ import OtherAnimals from './pages/OtherAnimals'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Shop from './pages/Shop'
-import Footer from './components/Footer'
 import Cart from './pages/Cart'
 import PlaceOrder from './pages/PlaceOrder'
 import Orders from './pages/Orders'
@@ -46,7 +45,6 @@ function App() {
               <Route path='/verify' element={<Verify/>} />
           </Routes>
       </UserContextProvider>
-      <Footer/>
     </>
   )
 }

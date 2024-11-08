@@ -83,7 +83,7 @@ const AddAnimal = ({ token }) => {
   }
 
   const handleCertificatesChange = (e) => {
-    setCertificates(e.target.files); // Set multiple files for certificates
+    setCertificates(e.target.files);
 }
   
 
@@ -177,7 +177,6 @@ const AddAnimal = ({ token }) => {
             </div>
 
             <div className='add-form-content'>
-                {/* Other input fields remain unchanged */}
                 <div>
                     <p className='add-form-select-head'>Certificates</p>
                     <input onChange={handleCertificatesChange} className='add-name-input' type='file' multiple />

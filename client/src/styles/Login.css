@@ -14,14 +14,15 @@
     align-items: center;
     gap: 2rem;
     border: 1px solid grey;
-    padding-left: 80px;
+    padding-left: 60px;
+    padding-right: -90px;
     padding-top: 50px;
     padding-bottom: 30px;
 }
 
 .login-email-icon {
     position: absolute;
-    top: 20px;
+    top:  20px;
     left: 500px;
     font-size: 2.2rem;
 }
@@ -34,29 +35,39 @@
     cursor: pointer;
 }
 
+.login-image-container {
+    margin-left: 5rem;
+}
+
 .login-image {
-    width: 90%;
-    max-width: 900px;
+    width: 78%;
 }
 
 .login-form {
     display: flex;
     flex-direction: column;
     align-items: flex-start; 
-    width: 80%;
-    margin-left: -30px;
+    width: 100%;
+    margin-right: -30px;
+    margin-top: -20px;
 }
 
-.login-form-control {
+.login-form-controls {
     position: relative;
     margin: 10px 0 30px;
     width: 190%;
 }
 
-.login-form-control input {
+.login-form-controls-email {
+    position: relative !important;
+    margin: 10px 0 30px !important;
+    width: 190% !important;
+}
+
+.login-form-controls input {
     background-color: transparent;
     border: 0;
-    border-bottom: 2px #000000 solid;
+    border-bottom: 2px #000000 solid ;
     display: block;
     width: 100%;
     padding: 25px 0 10px;
@@ -64,31 +75,65 @@
     color: #000000;
 }
 
-.login-form-control input:focus,
-.login-form-control input:valid {
-    outline: 0;
-    border-bottom-color: rgb(0, 0, 0);
+.login-form-controls-email {
+    background-color: transparent !important;
+    border: 0 !important;
+    border-bottom: 2px #000000 solid !important;
+    display: block !important;
+    width: 100%  !important;
+    padding: 25px 0 10px !important;
+    font-size: 1.35rem !important;
+    color: #000000 !important;
 }
 
-.login-form-control label {
+.login-form-controls input:focus,
+.login-form-controls input:valid {
+    outline: 0 !important;
+    border-bottom-color: rgb(0, 0, 0) !important;
+}
+
+
+
+.login-form-controls label {
     position: absolute;
     top: 15px;
     left: 0;
     pointer-events: none;
 }
 
-.login-form-control label span {
-    display: inline-block;
+.login-form-controls-email label {
+    position: absolute !important;
+    top: 15px !important;
+    left: 0 !important;
+    pointer-events: none !important;
+}
+
+.login-form-controls label span {
+    display: inline-block !important;
     font-size: 1.5rem;
     min-width: 5px;
     color: #000000;
-    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
 }
 
-.login-form-control input:focus + label span,
-.login-form-control input:valid + label span {
+.login-form-controls-email label span {
+    display: inline-block !important;
+    font-size: 1.5rem !important;
+    min-width: 5px !important;
+    color: #000000 !important;
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+}
+
+.login-form-controls input:focus + label span,
+.login-form-controls input:valid + label span {
     color: rgb(0, 0, 0);
-    transform: translateY(-30px);
+    transform: translateY(-30px) !important;
+}
+
+.login-form-controls-email input:focus + label span,
+.login-form-controls-email input:valid + label span {
+    color: rgb(0, 0, 0) !important;
+    transform: translateY(-30px) !important;
 }
 
 .login-button {
@@ -109,6 +154,7 @@
     z-index: 1;
     font-size: 17px;
     border-radius: 6px;
+    margin-top: 2.25rem;
     font-weight: 700;
     font-size: 1.3rem;
     color: black;
@@ -141,3 +187,16 @@
     transition: background 0s;
   }
   
+.login-end-content-container {
+    margin-left: 12rem;
+    font-size: 1.2rem;
+    margin-top: 0.75rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.login-forgot-password {
+    position: absolute;
+    right: 700px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}

@@ -21,7 +21,7 @@ export function UserContextProvider({ children }) {
     });
     const navigate = useNavigate();
 
-    const addToCart = (itemId, size) => {
+    const addToCart = (itemId, size, quantity=1) => {
         let cartData = structuredClone(cartItems);
       
         if (!size) {
@@ -31,16 +31,16 @@ export function UserContextProvider({ children }) {
     
         if (cartData[itemId]) {
             if (cartData[itemId][size]) {
-                cartData[itemId][size] += 1; // Increment the quantity for that size
+                cartData[itemId][size] += quantity;
             } else {
-                cartData[itemId][size] = 1; // Add the size with a quantity of 1
+                cartData[itemId][size] = quantity;
             }
         } else {
-            cartData[itemId] = { [size]: 1 };
+            cartData[itemId] = { [size]: quantity };
         }
     
         setCartItems(cartData);
-        localStorage.setItem('cartItems', JSON.stringify(cartData)); // Persist cart to localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartData));
     };
     
     
@@ -67,7 +67,6 @@ export function UserContextProvider({ children }) {
         if (!user) {
             axios.get('/api/auth/profile').then(({ data }) => {
                 setUser(data);
-                console.log('User Profile:', data);
             });
         }
     }, [user]);
@@ -82,7 +81,6 @@ export function UserContextProvider({ children }) {
 
     const fetchUserData = async () => {
         auth.onAuthStateChanged(async (user) => {
-            console.log('Firebase User:', user);
             if (user) {
                 const token = await user.getIdToken(); 
                 localStorage.setItem('authToken', token);
@@ -90,12 +88,10 @@ export function UserContextProvider({ children }) {
                 const docSnap = await getDoc(docRef);
                 if (docSnap.exists()) {
                     setUserDetails(docSnap.data());
-                    console.log('User Details:', docSnap.data());
                 } else {
                     console.log('User data not found');
                 }
                 setUser(user)
-                console.log("User for Order Maintenance should be : ",user.uid)
             }
         });
     };
@@ -105,7 +101,6 @@ export function UserContextProvider({ children }) {
         try {
             const response = await axios.get('/api/product');
             setProducts(response.data);
-            console.log('Product Data: ',response.data);
         }
         catch(error) {
             console.error('Error fetching products:',error);
@@ -116,7 +111,6 @@ export function UserContextProvider({ children }) {
         try {
             const response = await axios.get('/api/animal');
             setAnimals(response.data);
-            console.log('Animals Data:', response.data);
         } catch (error) {
             console.error('Error fetching animals:', error);
         }
@@ -133,7 +127,7 @@ export function UserContextProvider({ children }) {
     };
 
     const updateQuantity = async (itemId, size, quantity) => {
-        const cartData = { ...cartItems }; // Ensure new object reference for state change
+        const cartData = { ...cartItems };
     
         if (quantity > 0) {
             cartData[itemId] = {
@@ -141,15 +135,14 @@ export function UserContextProvider({ children }) {
                 [size]: quantity,
             };
         } else {
-            // Remove the size if quantity is zero to clean up the cart
             delete cartData[itemId][size];
             if (Object.keys(cartData[itemId]).length === 0) {
-                delete cartData[itemId]; // Remove the item if all sizes are zero
+                delete cartData[itemId];
             }
         }
     
         setCartItems(cartData);
-        localStorage.setItem('cartItems', JSON.stringify(cartData)); // Persist changes
+        localStorage.setItem('cartItems', JSON.stringify(cartData));
     
         try {
             const token = localStorage.getItem('authToken');
@@ -163,7 +156,6 @@ export function UserContextProvider({ children }) {
             });
         } catch (error) {
             console.log(error);
-            toast.error(error.message);
         }
     };
     

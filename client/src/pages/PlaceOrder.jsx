@@ -6,13 +6,21 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { IoMdArrowRoundBack } from "react-icons/io";
+import Footer from '../components/Footer';
+
 
 const PlaceOrder = () => {
   const [method, setMethod] = useState('cod');
   const { cartItems, user, getCartAmount,setCartItems } = useContext(UserContext);
   const navigate = useNavigate();
 
-  console.log("CArt Items for SUganth : ",cartItems )
+
+  useEffect(()=>{
+    if(!user || !user.uid) {
+      navigate('/');
+    }
+  },[user])
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -26,16 +34,14 @@ const PlaceOrder = () => {
     phone: '',
   });
 
-  const [userId, setUserId] = useState(null);  // Local state to store user UID
+  const [userId, setUserId] = useState(null); 
   
-  // Handle user changes
   useEffect(() => {
     if (user && user.uid) {
-      setUserId(user.uid);  // Update userId whenever the user changes
+      setUserId(user.uid);
     }
   }, [user]);
 
-  console.log("UserID from state:", userId); 
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -92,9 +98,17 @@ const PlaceOrder = () => {
     }
   };
 
+  const handleBack = ()=> {
+    navigate('/cart')
+  }
+
   return (
+    <>
+    <div className='placeOrder-back'>
+    <div className='placeOrder-back-icon'> <IoMdArrowRoundBack /> </div>
+        <h1 className='placeOrder-back-text' onClick={handleBack}>Back</h1>
+    </div>
     <div className='placeorder'>
-      {/* Left Side */}
       <div className='placeorder-left'>
         <div style={{ margin: '2rem 0' }}>
           <h1>DELIVERY INFORMATION</h1>
@@ -188,7 +202,6 @@ const PlaceOrder = () => {
         />
       </div>
 
-      {/* Right Side */}
       <div className='placeorder-right'>
         <div className='placeorder-amount'>
           <CartTotal />
@@ -196,7 +209,6 @@ const PlaceOrder = () => {
 
         <div className='placeorder-payment-main'>
           <h1>PAYMENT METHOD</h1>
-          {/* Payment Method Selection */}
           <div className='placorder-payment-method-list'>
             <div onClick={() => setMethod('stripe')} className='placeorder-payment-method'>
               <p className={`placeorder-payment-method-ptag ${method === 'stripe' ? 'placeorder-method-active' : ''} `}></p>
@@ -219,6 +231,8 @@ const PlaceOrder = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

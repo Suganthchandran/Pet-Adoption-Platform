@@ -6,8 +6,8 @@
 
 \@font-face {
     font-family: "Nexa Heavy";
-    src: url("/path-to-your-font/Nexa-Heavy.woff2") format("woff2"), /* Adjust the path and formats as necessary */
+    src: url("/path-to-your-font/Nexa-Heavy.woff2") format("woff2"),
          url("/path-to-your-font/Nexa-Heavy.woff") format("woff");
-    font-weight: 700; /* Adjust font weight if necessary */
+    font-weight: 700;
     font-style: normal;
 }

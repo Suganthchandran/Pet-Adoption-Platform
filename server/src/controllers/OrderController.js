@@ -13,15 +13,11 @@ exports.createOrder = async (req, res) => {
       paymentMethod,
     } = req.body;
 
-    console.log('Cart Items:', cartItems);
-
     const itemsArray = Object.entries(cartItems).map(([productId, weights]) => ({
       productId,
       weights,
     }));
     
-    console.log('Converted Cart Items:', itemsArray);
-
     const order = new Order({
       userId,
       deliveryInfo,
@@ -36,7 +32,6 @@ exports.createOrder = async (req, res) => {
     if (paymentMethod === 'stripe') {
       const lineItems = Object.entries(cartItems).map(([productId, details]) => {
         const quantity = Object.values(details).reduce((acc, qty) => acc + qty, 0);
-        console.log(quantity)
         if (isNaN(totalAmount) || totalAmount <= 0) {
           throw new Error(`Invalid price for product ${productId}: ${totalAmount}`);
         }

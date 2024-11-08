@@ -1,21 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/AnimalDetail.css';
 import Navbar from './Navbar';
-// import { assets } from '../assets/assets';
 import AdoptForm from './AdoptForm';
 import Certificate from './Certificate';
+import { UserContext } from '../../context/UserContext';
+import Footer from './Footer';
 
 const AnimalDetail = () => {
   const { id } = useParams();
   const [animal, setAnimal] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const navigate = useNavigate();
+
+  const {user} = useContext(UserContext);
+
   const [isModalOpen1, setModalOpen1] = useState(false);
   const [isModalOpen2, setModalOpen2] = useState(false);
 
   const handleButtonClick1 = () => {
+    if(!user || !user.uid) {
+      alert("Log in to Adopt the pet");
+      navigate('/login');
+      return;
+    }
     setModalOpen1(true); 
   };
 
@@ -24,6 +34,11 @@ const AnimalDetail = () => {
   };
 
   const handleCertificateClick = () => {
+    if(!user || !user.uid) {
+      alert("Log in to see the Certificates");
+      navigate('/login');
+      return;
+    }
     setModalOpen2(true);
   };
 
@@ -107,6 +122,7 @@ const AnimalDetail = () => {
       {isModalOpen1 && 
        <AdoptForm
        onClose={closeModal1}
+       animalId={animal._id}
        animalName={animal.name}
        ownername={animal.ownerName}
        owneremail={animal.owneremail}
@@ -122,6 +138,7 @@ const AnimalDetail = () => {
           {animal.desc}
         </p>
       </section>
+      <Footer/>
     </>
   );
 };

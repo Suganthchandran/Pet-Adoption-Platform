@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react';
 import '../styles/Shop.css';
 import Navbar from '../components/Navbar';
-import { FaShoppingCart } from 'react-icons/fa';
 import { assets } from '../assets/assets';
 import { UserContext } from '../../context/UserContext';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer'
 
 const Shop = () => {
   const [cartCount, setCartCount] = useState(0); 
@@ -38,20 +40,12 @@ const Shop = () => {
         <div className="overlay"></div>
       </section>
 
-      {/* Cart Icon
-      <div className="cart-icon" onClick={() => alert(`Items in Cart: ${cartCount}`)}>
-        <FaShoppingCart size={30} />
-        {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
-      </div> */}
-
-      {/* Product List Section */}
       <section className="product-list">
         {products.map((product) => (
           <ProductCard key={product._id} product={product} onAddToCart={handleAddToCart} />
         ))}
       </section>
 
-      {/* Refresh and Next Buttons */}
       <div className="button-container">
         <button className="refresh-button" onClick={handleRefresh}>
           Refresh
@@ -60,6 +54,7 @@ const Shop = () => {
           Next
         </button>
       </div>
+      <Footer/>
     </>
   );
 };
@@ -68,7 +63,9 @@ const ProductCard = ({ product, onAddToCart }) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]); 
 
-  const { addToCart } = useContext(UserContext);
+  const { addToCart, user } = useContext(UserContext);
+
+  const navigate = useNavigate();
 
   const handleIncrease = () => {
     setQuantity((prev) => prev + 1);
@@ -85,9 +82,28 @@ const ProductCard = ({ product, onAddToCart }) => {
   };
 
   const handleAddToCartClick = () => {
+    if(!user || !user.uid) {
+      toast.error("Log in to add to Cart");
+      setTimeout(() => {
+        navigate('/login');
+      }, 1500);
+      return;
+    }
     onAddToCart();
-    addToCart(product._id, selectedSize); 
+    addToCart(product._id, selectedSize, quantity); 
   };
+
+  const handleBuyNow = () => {
+    if(!user || !user.uid) {
+      toast.error("Log in to add to Cart");
+      setTimeout(() => {
+        navigate('/login');
+      }, 1500);
+      return;
+    }
+    handleAddToCartClick();
+    navigate('/place-order')
+  }
 
   return (
     <div className="product-card">
@@ -120,7 +136,7 @@ const ProductCard = ({ product, onAddToCart }) => {
 
         <div>
           <button className="add-to-cart" onClick={handleAddToCartClick}>Add to Cart</button>
-          <button className="buy-now">Buy Now</button>
+          <button className="buy-now" onClick={handleBuyNow}>Buy Now</button>
         </div>
       </div>
     </div>

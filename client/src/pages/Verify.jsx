@@ -3,21 +3,28 @@ import { useSearchParams } from 'react-router-dom';
 import axios from 'axios'
 import { toast } from 'react-toastify';
 import { UserContext } from '../../context/UserContext';
+import Footer from '../components/Footer';
 
 const Verify = () => {
     const { navigate, token, setCartItems } = useContext(UserContext);
     const [searchParams] = useSearchParams();
 
+    const {user} = useContext(UserContext);
+
     const success = searchParams.get('success');
     const orderId = searchParams.get('orderId');
     
     const verifyPayment = async () => {
+
+        if(!user || !user.uid) {
+            navigate('/');
+        }
+
         try {
             if (!token || !success || !orderId) {
                 return;
             }
 
-            // Call backend to verify the payment and update order status in DB
             const response = await axios.post(
                 'http://localhost:8086/api/orders/verifyStripe', 
                 { success, orderId },
@@ -27,7 +34,6 @@ const Verify = () => {
             if (response.data.success) {
                 setCartItems({});
                 toast.success('Payment successful! Redirecting to your orders...');
-                // Redirect to the orders page
                 navigate('/orders');
             } else {
                 toast.error('Payment verification failed. Please try again.');
@@ -47,6 +53,7 @@ const Verify = () => {
     return (
         <div>
             Verifying payment...
+            <Footer/>
         </div>
     );
 };

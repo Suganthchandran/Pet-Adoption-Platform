@@ -1,6 +1,5 @@
 import React from 'react'
 import '../styles/FeaturesCard.css'
-import { assets } from '../assets/assets'
 import Button from './Button'
 
 const FeaturesCard = ({image,title,desc}) => {

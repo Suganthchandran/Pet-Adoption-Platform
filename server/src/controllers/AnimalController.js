@@ -4,7 +4,6 @@ const cloudinary = require('cloudinary').v2;
 
 exports.createAnimal = async (req, res) => {
     try {
-        console.log("Inside createAnimal function...");
         const { name, desc, type, breed, age, gender, year, color, location, stack, ownerName, ownerphone, owneremail } = req.body;
         
         if (!req.files || !req.files.image || !req.files.image[0]) {

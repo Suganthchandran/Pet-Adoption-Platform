@@ -2,6 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/Orders.css';
 import { UserContext } from '../../context/UserContext';
+import { assets } from '../assets/assets';
+import Navbar from '../components/Navbar';
+import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const Orders = () => {
   const { currency, user } = useContext(UserContext);
@@ -10,17 +14,12 @@ const Orders = () => {
   const [loading, setLoading] = useState(false);
 
   const fetchOrders = async () => {
-    if (!user || !user.uid) {
-      // Handle the case where user is not logged in
-      console.error('User not logged in');
-      return;
-    }
+
     try {
       const response = await axios.get('/api/orders');
       if (response.data.success) {
         const userOrders = response.data.orders.filter(order => order.userId === user.uid);
         setOrders(userOrders.reverse());
-        console.log('Order List: ', userOrders);
         fetchProductDetails(userOrders);
       }
     } catch (error) {
@@ -36,7 +35,6 @@ const Orders = () => {
 
     try {
       const response = await axios.post('http://localhost:8086/api/product/details', { productIds });
-      console.log('Product details response:', response.data);
 
       if (response.data.success) {
         const detailsMap = response.data.products.reduce((acc, product) => {
@@ -56,38 +54,33 @@ const Orders = () => {
     fetchOrders();
   }, [user]);
 
-  useEffect(() => {
-    console.log('Product Details:', productDetails);
-  }, [productDetails]);
-
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
+    <>
+     <Navbar/>
+    <section className="home-image69" style={{ backgroundImage: `url(${assets.orderImage})` }}>
+                <div className="overlay69"></div>
+            </section>
     <div className='order'>
       <div className='order-start'>
         <h1>MY ORDERS</h1>
       </div>
 
       <div>
-        {orders.length > 0 ? (
+
+      {!user || !user.uid ? (
+          <div className="empty-cart">
+            <h1 className="empty-cart-message">Login to See Your Orders!</h1>
+            <img src={assets.no_cart} alt="Empty Cart" className="empty-cart-image" />
+          </div>
+        ) : (
+
+        orders.length > 0 ? (
           orders.map((order) => (
             <div key={order._id} className='order-main'>
-             <div className='orders-head'>
-                         <div className='order-details'>
-                <h3 style={{fontSize:'1.5rem'}}>Order ID: {order._id}</h3>
-               <div className='order-mini-content'>
-                <div>Payment Status: {order.paymentStatus === 'paid' ? 'Paid' : 'Pending'}</div>
-                <div>Total Amount: {currency} {order.totalAmount}</div>
-                <div>Payment Method: {order.paymentMethod}</div>
-                <div>Date: {new Date(order.createdAt).toLocaleDateString()}</div>
-                </div>
-              </div>
-
-             
-              </div>
-
               <div className='order-main-contents'>
 
               <div className='order-items'>
@@ -133,6 +126,15 @@ const Orders = () => {
 
               </div>
 
+              <div className='order-mini-content'>
+                <div>Payment Status: {order.paymentStatus === 'paid' ? 'Paid' : 'Pending'}</div>
+                <div>Total Amount: {currency} {order.totalAmount}</div>
+                <div>Payment Method: {order.paymentMethod}</div>
+                <div>Date: {new Date(order.createdAt).toLocaleDateString()}</div>
+                </div>
+
+
+
               <div className='order-shipping'>
                 <div className='order-shipping-content'>
                   <p className='order-shipping-circle'></p>
@@ -140,7 +142,7 @@ const Orders = () => {
                 </div>
               </div>
 
-              <div>
+              <div className='order-track-order'>
                 <button onClick={fetchOrders} className='order-track'>Track Order</button>
               </div>
 
@@ -150,10 +152,16 @@ const Orders = () => {
             </div>
           ))
         ) : (
-          <p>No orders found.</p>
-        )}
+          <div className='no-order-container'>
+            <h1 className='no-order-text'>No Orders Available</h1>
+                <img src={assets.order} />
+            </div>
+        ))
+      }
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

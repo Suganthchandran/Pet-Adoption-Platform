@@ -13,7 +13,6 @@ const Orders = () => {
       const response = await axios.get('http://localhost:8086/api/orders');
       if (response.data.success) {
         setOrders(response.data.orders.reverse());
-        console.log('Order List: ', response.data.orders);
         fetchProductDetails(response.data.orders);
       }
     } catch (error) {
@@ -29,7 +28,6 @@ const Orders = () => {
 
     try {
       const response = await axios.post('http://localhost:8086/api/product/details', { productIds });
-      console.log('Product details response:', response.data);
 
       if (response.data.success) {
         const detailsMap = response.data.products.reduce((acc, product) => {
@@ -48,10 +46,6 @@ const Orders = () => {
   useEffect(() => {
     fetchOrders();
   }, []);
-
-  useEffect(() => {
-    console.log('Product Details:', productDetails);
-  }, [productDetails]);
 
   if (loading) {
     return <div>Loading...</div>;

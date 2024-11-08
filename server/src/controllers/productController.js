@@ -94,7 +94,7 @@ exports.deleteProduct = async (req, res) => {
         if (!deletedProduct) {
             return res.status(404).json({ message: 'Product not found' });
         }
-        res.status(200).json({ message: 'Product deleted successfully' });
+        res.status(200).json({ success: true, message: 'Product deleted successfully' });
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
@@ -108,14 +108,12 @@ exports.getProductsByIds = async (req, res) => {
           return res.status(400).json({ error: 'No product IDs provided' });
         }
     
-        // Fetch products by productIds from the database
         const products = await Product.find({ '_id': { $in: productIds } });
     
         if (products.length === 0) {
           return res.status(404).json({ message: 'No products found' });
         }
     
-        // Respond with the products
         res.status(200).json({ success: true, products });
       } catch (error) {
         console.error('Error fetching product details:', error);

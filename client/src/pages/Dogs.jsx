@@ -111,15 +111,17 @@ const Dogs = () => {
                 <h1>DOGS:</h1>
                 <div className="dog-products">
                     {filteredAnimals.length > 0 ? (
-                        filteredAnimals.map((animal, index) => (
-                            <AnimalCards
-                                key={index}
-                                name={animal.name}
-                                id={animal._id}
-                                year={animal.year}
-                                image={animal.image}
-                            />
-                        ))
+                         filteredAnimals
+                         .filter(animal => animal.stack > 0)
+                         .map((animal, index) => (
+                             <AnimalCards
+                                 key={index}
+                                 name={animal.name}
+                                 id={animal._id}
+                                 year={animal.year}
+                                 image={animal.image}
+                             />
+                         ))
                     ) : (
                         <div>
                         <p className='dogs-no-search-para'>No dogs found for the selected filters.</p>
@@ -131,6 +133,7 @@ const Dogs = () => {
                 </div>
             </div>
         </div>
+        <Footer/>
         </>
     );
 };

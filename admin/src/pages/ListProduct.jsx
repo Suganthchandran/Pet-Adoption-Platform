@@ -9,7 +9,7 @@ const ListProduct = ({ token }) => {
     const fetchData = async () => {
         try {
             const response = await axios.get('http://localhost:8086/api/product');
-            setListProduct(response.data.reverse()); // Ensure the response matches the product model structure
+            setListProduct(response.data.reverse());
         } catch (error) {
             toast.error(error.message);
         }

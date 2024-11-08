@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 const cartItemSchema = new mongoose.Schema({
   productId: {
-    type: String,  // Stores product ID
+    type: String,
     required: true,
   },
   weights: {
-    type: Object,  // Stores sizes/weights as key-value pairs (e.g., {'1kg': 1})
+    type: Object,
     required: true,
   },
 });
@@ -14,7 +14,7 @@ const cartItemSchema = new mongoose.Schema({
 const orderSchema = new mongoose.Schema(
   {
     userId: {
-      type: String,  // Store Firebase UID as a string
+      type: String,
       required: true,
     },
     deliveryInfo: {
@@ -28,7 +28,7 @@ const orderSchema = new mongoose.Schema(
       country: String,
       phone: String,
     },
-    cartItems: [cartItemSchema],  // Array of cart items using the sub-schema
+    cartItems: [cartItemSchema], 
     totalAmount: {
       type: Number,
       required: true,
@@ -40,14 +40,14 @@ const orderSchema = new mongoose.Schema(
     },
     orderStatus: {
       type: String,
-      default: 'Pending',
+      default: 'Shipped',
     },
     paymentStatus: {
       type: String,
       default: 'unpaid',
     },
   },
-  { timestamps: true } // Add timestamps to automatically include createdAt and updatedAt fields
+  { timestamps: true } 
 );
 
 const Order = mongoose.model('Order', orderSchema);

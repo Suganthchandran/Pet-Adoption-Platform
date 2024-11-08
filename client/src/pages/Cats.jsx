@@ -20,21 +20,18 @@ const Cats = () => {
         year: ''
     });
 
-    // Extract unique filter values (only from cats)
-    const cats = animals?.filter(animal => animal.type === 'cat') || []; // Make sure the type is 'Cat'
+    const cats = animals?.filter(animal => animal.type === 'cat') || [];
     const uniqueBreeds = [...new Set(cats.map(animal => animal.breed))];
     const uniqueAges = [...new Set(cats.map(animal => animal.age))];
     const uniqueGenders = [...new Set(cats.map(animal => animal.gender))];
     const uniqueColors = [...new Set(cats.map(animal => animal.color))];
     const uniqueYears = [...new Set(cats.map(animal => animal.year))];
 
-    // Update filters based on dropdown selection
     const handleFilterChange = (e) => {
         const { name, value } = e.target;
         setFilters(prevFilters => ({ ...prevFilters, [name]: value }));
     };
 
-    // Filter the cats based on selected filters
     const filteredAnimals = useMemo(() => {
         return cats.filter(animal => {
             return (
@@ -56,7 +53,6 @@ const Cats = () => {
                 <div className="overlay"></div>
             </section>
             <div className="cat">
-                {/* Filter Dropdowns */}
                 <div className="cat-filter-options">
                     <h1 className='cat-filter-head'>FILTERS</h1>
                     <div className="cat-filter-dropdown">
@@ -110,19 +106,20 @@ const Cats = () => {
                     </div>
                 </div>
 
-                {/* Displaying the filtered cats */}
                 <div className="cat-right">
                     <h1>CATS:</h1>
                     <div className="cat-products">
                         {filteredAnimals.length > 0 ? (
-                            filteredAnimals.map((animal, index) => (
-                                <AnimalCards
-                                    key={index}
-                                    name={animal.name}
-                                    id={animal._id} // Use the correct property for the ID
-                                    year={animal.year}
-                                    image={animal.image}
-                                />
+                           filteredAnimals
+                           .filter(animal => animal.stack > 0) 
+                           .map((animal, index) => (
+                               <AnimalCards
+                                   key={index}
+                                   name={animal.name}
+                                   id={animal._id}
+                                   year={animal.year}
+                                   image={animal.image}
+                               />
                             ))
                         ) : (
                             <div>
@@ -135,8 +132,9 @@ const Cats = () => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     );
 };
 
-export default Cats; // Export the Cats component
+export default Cats; 

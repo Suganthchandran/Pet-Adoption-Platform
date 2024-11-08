@@ -29,8 +29,6 @@ const AddProduct = ({token}) => {
 
             const response = await axios.post("http://localhost:8086/api/product/",formData,{headers:{token}})
 
-            console.log("Response : ",response.data);
-
             if(response.data.success) {
                 toast.success(response.data.message);
                 setName("")

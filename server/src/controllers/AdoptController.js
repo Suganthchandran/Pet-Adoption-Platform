@@ -1,4 +1,5 @@
 const Adopt = require('../modals/AdoptModal');
+const Animal = require('../modals/AnimalModals')
 
 const adoptController = {
 
@@ -25,14 +26,43 @@ const adoptController = {
 
     createAdoption: async (req, res) => {
         try {
-            console.log(req.body);
-            const newAdoption = new Adopt(req.body);
+            const { name, email, phone, city, address, message, animalId, animalName, ownername, ownerphone, owneremail } = req.body;
+    
+            const animal = await Animal.findById(animalId);
+    
+            if (!animal) {
+                return res.status(404).json({ message: 'Animal not found' });
+            }
+    
+            if (animal.stack <= 0) {
+                return res.status(400).json({ message: 'No stock available for this animal' });
+            }
+    
+            animal.stack -= 1;
+            await animal.save();
+    
+            const newAdoption = new Adopt({
+                name,
+                email,
+                phone,
+                city,
+                address,
+                message,
+                animalId,
+                animalName,
+                ownername,
+                ownerphone,
+                owneremail
+            });
+    
             const savedAdoption = await newAdoption.save();
             res.status(201).json(savedAdoption);
         } catch (error) {
+            console.error('Error creating adoption request:', error);
             res.status(400).json({ message: 'Error creating adoption request', error });
         }
     },
+    
 
     updateAdoption: async (req, res) => {
         try {

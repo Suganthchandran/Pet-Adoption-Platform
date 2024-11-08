@@ -24,6 +24,10 @@ import shop from './shop.jpg'
 import contact from './contact.webp'
 import noCertificate from './no-certi.webp'
 import pdf from './pdf2.png'
+import cart from './cart.webp'
+import order from './orders.png'
+import orderImage from './order.jpg'
+import no_cart from './no_cart.png'
 
 export const assets = {
     login_image,
@@ -37,6 +41,7 @@ export const assets = {
     Animal_Banner_image,
     Dog,
     Cat,
+    cart,
     Rabbit,
     Hamster,
     Horse,
@@ -52,6 +57,9 @@ export const assets = {
     contact,
     noCertificate,
     pdf,
+    order,
+    orderImage,
+    no_cart,
     features: [
         {
             image : Home_dog,

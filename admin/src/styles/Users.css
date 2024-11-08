@@ -7,7 +7,7 @@
 
 .list-table-head9, .list-table-content9 {
     display: grid;
-    grid-template-columns: repeat(5,1fr); /* Adjust based on the number of columns */
+    grid-template-columns: repeat(5,1fr);
     align-items: center;
     gap: 4.5rem;
     padding: 1rem 2.5rem 1rem 0rem;

@@ -1,6 +1,6 @@
 const multer = require("multer");
 
-const storage = multer.memoryStorage(); // Store the image in memory for cloud upload
+const storage = multer.memoryStorage();
 
 const upload = multer({ storage });
 

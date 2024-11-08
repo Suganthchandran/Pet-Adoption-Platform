@@ -22,6 +22,7 @@
 
 .signup-image-container {
     margin-left: -100px;
+    margin-top: -40px;
 }
 
 .signup-user-icon {
@@ -33,9 +34,9 @@
 
 .signup-email-icon {
     position: absolute;
-    top: 20px;
+    top: 8px;
     left: 500px;
-    font-size: 2.2rem;
+    font-size: 2.4rem;
 }
 
 .signup-password-icon {
@@ -55,13 +56,14 @@
     flex-direction: column;
     align-items: flex-start; 
     width: 90%;
-    margin-top: -100px;
+    margin-top: -110px;
+    margin-right: 8rem;
 }
 
 .signup-form-control {
-    position: relative;
-    margin: 10px 0 30px;
-    width: 190%;
+    position: relative !important;
+    margin: 10px 0 30px !important;
+    width: 190% !important;
 }
 
 .signup-form-control input {
@@ -69,37 +71,37 @@
     border: 0;
     border-bottom: 2px #000000 solid;
     display: block;
-    width: 100%;
-    padding: 25px 0 10px;
-    font-size: 1.35rem;
+    width: 100% !important;
+    padding: 25px 0 10px !important;
+    font-size: 1.35rem !important;
     color: #000000;
 }
 
 .signup-form-control input:focus,
 .signup-form-control input:valid {
-    outline: 0;
-    border-bottom-color: rgb(0, 0, 0);
+    outline: 0 !important;
+    border-bottom-color: rgb(0, 0, 0) !important;
 }
 
 .signup-form-control label {
-    position: absolute;
-    top: 15px;
-    left: 0;
-    pointer-events: none;
+    position: absolute !important;
+    top: 15px !important;
+    left: 0 !important;
+    pointer-events: none !important;
 }
 
 .signup-form-control label span {
-    display: inline-block;
-    font-size: 1.5rem;
-    min-width: 5px;
-    color: #000000;
-    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    display: inline-block !important;
+    font-size: 1.5rem !important;
+    min-width: 5px !important;
+    color: #000000 !important;
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
 }
 
 .signup-form-control input:focus + label span,
 .signup-form-control input:valid + label span {
-    color: rgb(0, 0, 0);
-    transform: translateY(-30px);
+    color: rgb(0, 0, 0) !important;
+    transform: translateY(-30px) !important;
 }
 
 .signup-button {
@@ -152,3 +154,22 @@
     transition: background 0s;
   }
   
+.signup-email {
+    border: none !important;
+    border-bottom: 2px solid black !important;
+    width: 100% !important;
+}
+
+.signup-end-content-container {
+    margin-left: 12rem;
+    font-size: 1.2rem;
+    margin-top: 0.75rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.signup-forgot-password {
+    position: absolute;
+    right: 660px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}

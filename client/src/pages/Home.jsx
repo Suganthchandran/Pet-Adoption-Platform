@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar';
 import { Tilt } from 'react-tilt';
 import Features from '../components/Features';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -136,8 +137,9 @@ const Home = () => {
                 </div>
 
             </div>
+            <Footer/>
         </div>
-
+            
     );
 };
 

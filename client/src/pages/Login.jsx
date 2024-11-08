@@ -22,7 +22,6 @@ const Login = () => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth,email,password);
-      console.log("User Logged In Successfully");
       window.location.href = "/";
       toast.success("User Logged In Successfully");
     }
@@ -40,15 +39,15 @@ const Login = () => {
 
   return (
     <div className='login-main'>
-      <div className='login-container'> {/* New container */}
+      <div className='login-container'>
         <div className='login-image-container'>
           <img className='login-image' src={assets.login_image} alt='Login_Image' />
         </div>
         <div className='login-form'>
           <form onSubmit={loginUser}>
-            <div className="login-form-control">
-              <input
-                type="email"
+            <div className="login-form-controls">
+              <input className='login-form-controls-email' style={{border:'none'}}
+                type="text"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -63,7 +62,7 @@ const Login = () => {
               <div className='login-email-icon'><MdEmail /></div>
             </div>
 
-            <div className="login-form-control">
+            <div className="login-form-controls">
               <input
                 type={showPassword ? "text" : "password"}
                 required
@@ -84,12 +83,15 @@ const Login = () => {
                 {showPassword ? <FaEyeSlash/> : <FaEye />}
                 </div>
             </div>
+          <p className='login-forgot-password' onClick={handlePasswordReset}>Forgot Password ?</p>
 
             <button className='login-button' type="submit">Login</button>
           </form>
-          <p onClick={handlePasswordReset}>Forgot Password ?</p>
-          <p>Don't Have an account? </p>
-          <Link to='/register'>Sign Up</Link>
+          <div style={{}}>
+          <div className='login-end-content-container'>
+          <p className='login-account-redirect'>Don't Have an account? <Link to='/register'>Sign Up</Link></p>
+          </div>
+          </div>
         </div>
       </div>
     </div>

@@ -11,8 +11,6 @@
 
 .order-main {
     padding: 1rem 0;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
     color: black; 
     font-weight: 700;
     display: flex;
@@ -35,7 +33,7 @@
 .order-content-image {
     width: 120px;
     object-fit: cover;
-    height: 7rem;
+    height: 100px;
 }
 
 .order-info {
@@ -76,7 +74,6 @@
 .order-track {
     border: 1px solid rgb(179, 179, 179);
     padding: 0.5rem 1rem;
-    margin-right: 1rem;
     font-size: 1rem;
     font-weight: 500;
     border-radius: 0.125rem;
@@ -86,6 +83,7 @@
     cursor: pointer;
     background-color: white;
 }
+
 
 @media (max-width: 768px) {
     .order-main {
@@ -142,21 +140,66 @@
 .order-main-contents {
     display: grid;
     align-items: center;
-    grid-template-columns: repeat(3,1fr);
-    width: 130%;
+    grid-template-columns: repeat(4,1fr);
+    width: 100%;
+    padding: 2.2rem;
+    margin-bottom: -15px;
+    border: 1px solid grey;
 }
 
 .order-mini-content{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap:5rem;
-    font-size: 1.3rem;
+    flex-direction: column;
+    gap:0.5rem;
+    font-size: 1rem;
     color: grey;
+    margin-left: 10rem;
 }
 
 .order-details {
     display: flex;
     align-items: center;
     gap:10rem;
+}
+
+.no-order-container{
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.no-order-text{
+    font-size: 2.6rem;
+    font-family: karla;
+}
+
+.home-image69 {
+    height: 105vh;
+    background-size: cover;
+    background-position: center top;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    margin-top: -400px;
+    position: relative;
+    object-fit: cover;
+}
+
+.overlay69 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: 0;
+}
+
+.order-track-order {
+    margin-left: 10rem !important;
 }

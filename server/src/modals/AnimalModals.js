@@ -12,7 +12,11 @@ const animalSchema = new mongoose.Schema({
     year: { type: String },
     color: { type: String },
     location: {type: String},
-    stack: {type: Number},
+    stack: {
+        type: Number,
+        required: true,
+        min: [0, 'Stock cannot be negative']
+    },
     ownerName: {type: String},
     ownerphone: {type:String},
     owneremail: {type: String},

@@ -19,6 +19,8 @@ const SignUp = () => {
   const [password,setPassword] = useState('')
   const [showPassword,setShowPassword] = useState(false)
 
+  const navigate = useNavigate();
+
   const togglePasswordVisibility = () => {
     setShowPassword(prevState => !prevState);
   };
@@ -26,24 +28,20 @@ const SignUp = () => {
   const registerUser = async (e) => {
     e.preventDefault();
     try {
-      // Create the user with email and password
       await createUserWithEmailAndPassword(auth, email, password);
       const user = auth.currentUser;
       
       if (user) {
-        // Update the display name in the Firebase Authentication profile
         await updateProfile(user, {
           displayName: name
         });
   
-        // Save user data to Firestore
         await setDoc(doc(db, "Users", user.uid), {
           email: user.email,
-          name: name // Store the display name in Firestore as well
+          name: name
         });
       }
-      
-      console.log("User Registered Successfully");
+      navigate('/login');
       toast.success("User Registered Successfully");
     } catch (error) {
       console.log(error.message);
@@ -81,7 +79,8 @@ const SignUp = () => {
             </div>
             <div className="signup-form-control">
               <input
-                type="email"
+               className='signup-email'
+                type="text"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -120,8 +119,9 @@ const SignUp = () => {
 
             <button className='signup-button' type="submit">Register</button>
           </form>
-          <p>Already Have an account? </p>
-          <Link to='/login'>Login</Link>
+          <div className='signup-end-content-container'>
+          <p className='signup-account-redirect'>Already Have an account? <Link to='/login'>Login</Link></p>
+          </div>
         </div>
       </div>
     </div>

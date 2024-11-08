@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // Import axios
-import '../styles/AdoptForm.css'; // Import styles for the form
+import axios from 'axios';
+import '../styles/AdoptForm.css';
 
-const AdoptForm = ({ onClose, animalName, ownername, owneremail, ownerphone }) => {
+const AdoptForm = ({ onClose,animalId, animalName, ownername, owneremail, ownerphone }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,13 +10,13 @@ const AdoptForm = ({ onClose, animalName, ownername, owneremail, ownerphone }) =
     city: '',
     address: '',
     message: '',
+    animalId,
     animalName,
     ownername,
     owneremail,
     ownerphone,
   });
 
-  // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -25,14 +25,12 @@ const AdoptForm = ({ onClose, animalName, ownername, owneremail, ownerphone }) =
     });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Sending the data to the backend using Axios
       const response = await axios.post('http://localhost:8086/api/adopt/add', formData, {
         headers: {
-            'Content-Type': 'application/json',  // Ensure the server understands it's JSON
+            'Content-Type': 'application/json',
         },
     });
       
@@ -51,7 +49,7 @@ const AdoptForm = ({ onClose, animalName, ownername, owneremail, ownerphone }) =
   return (
     <div className='form-overlay'>
       <div className='form-content'>
-        <button className='close-button' onClick={onClose}>✖</button> {/* Close icon */}
+        <button className='close-button' onClick={onClose}>✖</button>
         <h2>Start Your Adoption Journey</h2>
         <hr />
         <form onSubmit={handleSubmit}>
@@ -127,11 +125,10 @@ const AdoptForm = ({ onClose, animalName, ownername, owneremail, ownerphone }) =
               required 
             />
           </div>
-          {/* Hidden inputs for animal and owner details */}
           <input type='hidden' name='animalName' value={formData.animalName} />
-          <input type='hidden' name='ownerName' value={formData.ownerName} />
-          <input type='hidden' name='ownerEmail' value={formData.ownerEmail} />
-          <input type='hidden' name='ownerPhone' value={formData.ownerPhone} />
+          <input type='hidden' name='ownerName' value={formData.ownername} />
+          <input type='hidden' name='ownerEmail' value={formData.owneremail} />
+          <input type='hidden' name='ownerPhone' value={formData.ownerphone} />
           <div className='form-button-container'>
             <button type='submit' className='form-button'>Submit</button>
           </div>

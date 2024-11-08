@@ -22,7 +22,7 @@ const OtherAnimals = () => {
 
     const [filteredAnimals, setFilteredAnimals] = useState([]);
 
-    const Other_animals = animals.filter(animal => animal.type !== 'dog' && animal.type !== 'cat'); // Filter only Other_animals
+    const Other_animals = animals.filter(animal => animal.type !== 'dog' && animal.type !== 'cat'); 
     const uniqueAnimals = [...new Set(Other_animals.map(animal => animal.type))];
     const uniqueAges = [...new Set(Other_animals.map(animal => animal.age))];
     const uniqueGenders = [...new Set(Other_animals.map(animal => animal.gender))];
@@ -110,12 +110,13 @@ const OtherAnimals = () => {
                 </div>
             </div>
 
-            {/* Displaying the filtered other_animalss */}
             <div className="other_animals-right">
                 <h1>OTHER ANIMALS : </h1>
                 <div className="other_animals-products">
                     {filteredAnimals.length > 0 ? (
-                        filteredAnimals.map((animal, index) => (
+                        filteredAnimals
+                        .filter(animal => animal.stack > 0)
+                        .map((animal, index) => (
                             <AnimalCards
                                 key={index}
                                 name={animal.name}
@@ -135,8 +136,9 @@ const OtherAnimals = () => {
                 </div>
             </div>
         </div>
+        <Footer/>
         </>
     );
 };
 
-export default OtherAnimals; // Updated export statement
+export default OtherAnimals;

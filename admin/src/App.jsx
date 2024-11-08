@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
-import Add from './pages/AddAnimal'
-import List from './pages/ListAnimal'
 import Orders from './pages/Orders'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Login from './components/Login'
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -37,6 +35,7 @@ function App() {
             <Sidebar />
             <div className='app-content'>
               <Routes>
+                <Route path='/' element={<Navigate to='/addAnimal' />} />
                 <Route path='/addAnimal' element={<AddAnimal token={token}/>} />
                 <Route path='/addProduct' element={<AddProduct token={token}/>} />
                 <Route path='/listAnimal' element={<ListAnimal token={token}/>} />

@@ -19,7 +19,6 @@
     display: grid;
     align-items: center;
     gap : 1rem;
-    /* grid-template-columns: repeat(4fr,0.5fr,0.5fr); */
     grid-template-columns: 4fr 1fr 1fr;
 }
 
@@ -130,4 +129,20 @@
     .cart-amount {
         width: 450px;
     }
+}
+
+.empty-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8rem;
+}
+
+.empty-cart-message {
+    font-size: 2.2rem;
+    font-family: karla;
+}
+
+.empty-cart-image {
+    width: 300px;
 }
