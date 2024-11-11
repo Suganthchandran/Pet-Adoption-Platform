@@ -28,6 +28,10 @@ import cart from './cart.webp'
 import order from './orders.png'
 import orderImage from './order.jpg'
 import no_cart from './no_cart.png'
+import about from './about.jpg'
+import about_1 from './about-1.png'
+import about_2 from './about-2.png'
+import about_3 from './about-3.png'
 
 export const assets = {
     login_image,
@@ -38,11 +42,15 @@ export const assets = {
     Home_animals,
     Dog_image,
     Cat_image,
+    about_1,
+    about_2,
+    about_3,
     Animal_Banner_image,
     Dog,
     Cat,
     cart,
     Rabbit,
+    about,
     Hamster,
     Horse,
     bin_icon,
