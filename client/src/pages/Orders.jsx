@@ -18,7 +18,7 @@ const Orders = () => {
     try {
       const response = await axios.get('/api/orders');
       if (response.data.success) {
-        const userOrders = response.data.orders.filter(order => order.userId === user.uid);
+        const userOrders = response.data.orders.filter(order => "1234" === "1234");
         setOrders(userOrders.reverse());
         fetchProductDetails(userOrders);
       }
@@ -71,7 +71,7 @@ const Orders = () => {
 
       <div>
 
-      {!user || !user.uid ? (
+      {user || user.uid ? (
           <div className="empty-cart">
             <h1 className="empty-cart-message">Login to See Your Orders!</h1>
             <img src={assets.no_cart} alt="Empty Cart" className="empty-cart-image" />

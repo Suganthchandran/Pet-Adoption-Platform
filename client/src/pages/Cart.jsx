@@ -15,10 +15,10 @@ const Cart = () => {
 
 
   useEffect(() => {
-    if (!user || !user.uid) {
-      console.error('User not logged in');
-      return;
-    }
+    // if (!user || !user.uid) {
+    //   console.error('User not logged in');
+    //   return;
+    // }
     let tempData = [];
     for (const items in cartItems) {
       for (const item in cartItems[items]) {

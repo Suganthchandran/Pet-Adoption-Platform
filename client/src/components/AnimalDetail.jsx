@@ -21,11 +21,11 @@ const AnimalDetail = () => {
   const [isModalOpen2, setModalOpen2] = useState(false);
 
   const handleButtonClick1 = () => {
-    if(!user || !user.uid) {
-      alert("Log in to Adopt the pet");
-      navigate('/login');
-      return;
-    }
+    // if(!user || !user.uid) {
+    //   alert("Log in to Adopt the pet");
+    //   navigate('/login');
+    //   return;
+    // }
     setModalOpen1(true); 
   };
 
@@ -34,11 +34,11 @@ const AnimalDetail = () => {
   };
 
   const handleCertificateClick = () => {
-    if(!user || !user.uid) {
-      alert("Log in to see the Certificates");
-      navigate('/login');
-      return;
-    }
+    // if(!user || !user.uid) {
+    //   alert("Log in to see the Certificates");
+    //   navigate('/login');
+    //   return;
+    // }
     setModalOpen2(true);
   };
 

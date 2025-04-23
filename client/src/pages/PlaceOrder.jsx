@@ -17,9 +17,9 @@ const PlaceOrder = () => {
 
 
   useEffect(()=>{
-    if(!user || !user.uid) {
-      navigate('/');
-    }
+    // if(!user || !user.uid) {
+    //   navigate('/');
+    // }
   },[user])
 
   const [formData, setFormData] = useState({
@@ -54,10 +54,10 @@ const PlaceOrder = () => {
   const isFormValid = Object.values(formData).every((field) => field.trim() !== '');
 
   const handlePlaceOrder = async () => {
-    if (!user) {
-      toast.error('Please log in to place an order.');
-      return;
-    }
+    // if (!user) {
+    //   toast.error('Please log in to place an order.');
+    //   return;
+    // }
 
     if(!isFormValid) {
       toast.error('Please Fill all the details in the Form.');
@@ -65,7 +65,7 @@ const PlaceOrder = () => {
     }
 
     const orderDetails = {
-      userId: userId,
+      userId: "1234",
       deliveryInfo: formData,
       cartItems,
       totalAmount: getCartAmount(),

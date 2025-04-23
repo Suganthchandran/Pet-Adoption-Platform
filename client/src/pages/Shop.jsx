@@ -82,25 +82,26 @@ const ProductCard = ({ product, onAddToCart }) => {
   };
 
   const handleAddToCartClick = () => {
-    if(!user || !user.uid) {
-      toast.error("Log in to add to Cart");
-      setTimeout(() => {
-        navigate('/login');
-      }, 1500);
-      return;
-    }
+    // if(!user || !user.uid) {
+    //   toast.error("Log in to add to Cart");
+    //   setTimeout(() => {
+    //     navigate('/login');
+    //   }, 1500);
+    //   return;
+    // }
+    toast.success("Added to Cart");
     onAddToCart();
     addToCart(product._id, selectedSize, quantity); 
   };
 
   const handleBuyNow = () => {
-    if(!user || !user.uid) {
-      toast.error("Log in to add to Cart");
-      setTimeout(() => {
-        navigate('/login');
-      }, 1500);
-      return;
-    }
+    // if(!user || !user.uid) {
+    //   toast.error("Log in to add to Cart");
+    //   setTimeout(() => {
+    //     navigate('/login');
+    //   }, 1500);
+    //   return;
+    // }
     handleAddToCartClick();
     navigate('/place-order')
   }

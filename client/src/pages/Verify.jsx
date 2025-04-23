@@ -16,9 +16,9 @@ const Verify = () => {
     
     const verifyPayment = async () => {
 
-        if(!user || !user.uid) {
-            navigate('/');
-        }
+        // if(!user || !user.uid) {
+        //     navigate('/');
+        // }
 
         try {
             if (!token || !success || !orderId) {

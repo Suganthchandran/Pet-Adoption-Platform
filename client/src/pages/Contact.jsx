@@ -44,29 +44,29 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!user || !user.uid || user === null) {
-      console.log("Inside User Check function");
-      setName("");
-      setDesc("");
-      setType("");
-      setBreed("");
-      setAge("");
-      setGender("");
-      setYear("");
-      setColor("");
-      setLocation("");
-      setStack("");
-      setOwnerName("");
-      setOwnerPhone("");
-      setOwnerEmail("");
-      setImage(false);
-      setBannerImage1(false);
-      setBannerImage2(false);
-      setCertificates([]);
-      alert("Log in to send Pet Details");
-      navigate('/login')
-      return null;
-    }
+    // if (!user || !user.uid || user === null) {
+    //   console.log("Inside User Check function");
+    //   setName("");
+    //   setDesc("");
+    //   setType("");
+    //   setBreed("");
+    //   setAge("");
+    //   setGender("");
+    //   setYear("");
+    //   setColor("");
+    //   setLocation("");
+    //   setStack("");
+    //   setOwnerName("");
+    //   setOwnerPhone("");
+    //   setOwnerEmail("");
+    //   setImage(false);
+    //   setBannerImage1(false);
+    //   setBannerImage2(false);
+    //   setCertificates([]);
+    //   alert("Log in to send Pet Details");
+    //   navigate('/login')
+    //   return null;
+    // }
 
     try {
       const formData = new FormData();
